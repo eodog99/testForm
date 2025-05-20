@@ -1,0 +1,19 @@
+  /* form css */
+    .progress-wrap {
+       display: flex;
+       flex-direction: row;
+    }
+
+        
+     .progress-wrap div{
+        width: 100px; height: 10px;
+        border: 1px solid red;
+    }
+
+     .progress-step1 {
+        background-color: pink;
+    }
+    
+   .active {
+        background-color: pink;
+    }
