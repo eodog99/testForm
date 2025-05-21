@@ -1,0 +1,27 @@
+.field {
+    width: 100px;
+}
+.tooltip-item {
+    background-color: rgb(32, 26, 83);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    
+}
+
+.tooltip-wrap {
+   display: flex;
+   opacity: 0;
+   transition: opacity 0.3s ease;
+
+   
+
+}
+
+.field:hover .tooltip-wrap{
+   opacity: 1; 
+}

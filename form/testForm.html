@@ -53,7 +53,6 @@ button type 설정
     <!-- 리셋, 저장버튼 -->
     <div>
         <button type="reset" onclick="resetForm()">리셋</button>
-        <button type="button" onclick="saveForm()">저장</button>
     </div>
     <!-- 진행바 -->
     <div class="progress-wrap">
@@ -102,14 +101,13 @@ button type 설정
 
     //제출 버튼을 눌렀을때 발생하는 이벤트
     function handleSubmit() {
-        const radiobtn = document.querySelectorAll('input[name="company"]:checked');
-        const selectedRadio = Array.from(radiobtn).map(rb => rb.value);
-        if (selectedRadio.length === 0) {
+        const radiobtn = document.querySelector('input[name="company"]:checked');
+        if (!radiobtn) {
             alert('선택해라')
-
         } else {
-            localStorage.setItem('form_radio', radiobtn);
-            console.log(selectedRadio + "저장완료")
+            const selectedValue = radiobtn.value;
+            localStorage.setItem('form_radio', selectedValue);
+            console.log(selectedValue + "저장완료")
             alert('제출 완료')
 
         }
@@ -176,15 +174,14 @@ button type 설정
 
         // 라디오버튼 복원
         const savedRadio = localStorage.getItem('form_radio');
-        if (savedRadio && Array.isArray(savedChecks)) {
-            savedChecks.forEach(val => {
-                const radiobtn = document.querySelector(`input[name="company"][value="${val}"]`);
-                if (radiobtn) {
-                    radiobtn.checked = true;
-                } else {
-                    console.log("라디오 버튼이 없다...........")
-                }
-            });
+        if (savedRadio) {
+
+            const radiobtn = document.querySelector(`input[name="company"][value="${savedRadio}"]`);
+            if (radiobtn) {
+                radiobtn.checked = true;
+            } else {
+                console.log("라디오 버튼이 없다...........")
+            }
         }
     };
 

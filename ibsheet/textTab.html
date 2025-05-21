@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/ibtab-style.css">
+    <script language="javascript" src="./js/ibleaders.js"></script>
+    <script language="javascript" src="./js/ibtab.js"></script>
+    <script language="javascript" src="./js/ibtabinfo.js"></script>
+</head>
+
+<body>
+
+    <div class="subConView">
+        <div class="conWrap">
+            <div class="sectionCon">
+                <div class="tabs-container">
+                    <ul class="nav nav-tabs" id="project_tab">
+                        <!-- 버튼 -->
+                        <div class="buttonGroup">
+
+                        </div>
+                    </ul>
+                </div>
+                <div class="BtnGroupR" style="margin-bottom: 10px;">
+                    <a href="${pageContext.request.contextPath}/project/useradd?id=<c:out value=" ${getProjectId }" />"
+                    class="btn btn-primary" >참여인력 추가</a>
+                    <a href="javascript:doAction('save')" class="btn btn-primary">저장</a>
+                </div>
+            </div>
+
+
+            <div class="ib_product" style="height:600px;">
+                <script type="text/javascript">
+                    createIBSheet("mySheet", "100%", "100%");
+                </script>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+<script language="javascript">
+    //IBSHEET 가져오는 함수
+    function LoadPage() {
+        //1.먼저 아이비시트 초기화를 해준다.
+        var initSheet = {};
+
+
+        //만들어진 전체 IBSHEET에 대한 속성을 걸어준다. EX)자동으로 데이터가 많아지면 스크롤바가 생김
+        initSheet.Cfg = {
+            SearchMode: smLazyLoad,
+            DeferredVScroll: 1
+        };
+
+        //IBSHEET의 헤더를 만들어주는 부분
+        initSheet.Cols = [
+            {
+                Header: "제외",   //보여줄 원하는 이름
+                Type: "DelCheck", // 삭제 체크박스가 생김
+                SaveName: "DELCHECK", //추후 서버에 보내줄때 MAP 타입의 KEY 로서 사용됨
+                MinWidth: 10,
+                Width: 10
+            }, {
+                Header: "성명",
+                Type: "Text",  //입력이 가능하다
+                SaveName: "user_name",
+                MinWidth: 40,
+                Align: "Center"
+
+            }, {
+                Header: "프로젝트 참여자",
+                Type: "Combo",
+                ComboText: "외부감독자|책임자|참조자|팀원|의자결정권자|평가위원장|평가위원",
+                ComboCode: "1|2|3|4|5|6|7",  //ComboText는 보여줄 이름, ComboCode는 ComboText값의 value 값 ex)selectBox 에서 option을 선택했을때 출력되는 innerText와 value 값을 생각하면 됨
+                MinWidth: 40,
+                Width: 40,
+                Wrap: 1,
+                MultiLineText: 1,  //shift+Enter 를 눌러서 text안에서 편집중 줄바꿈이 가능함
+                SaveName: "group_id",
+                Align: "Center"
+            }, {
+                Header: "직급",
+                Type: "Text",
+                MinWidth: 30,
+                Width: 40,
+                SaveName: "rank",
+                Align: "Center"
+            }, {
+                Header: "부서",
+                Type: "Text",
+                MinWidth: 40,
+                Width: 40,
+                SaveName: "department_name",
+                Align: "Center"
+            }, {
+                Header: "상태",
+                Type: "Status", // IBSHEET가 알아서 데이터가 삭제되면 Status 값을 D, 추가되면 I, 수정은 U 로서 판단할수있으며 추후 서버에 넘겨서 DATA[i].getStatus==I 라는 조건으로 CRUD를 구현하면됨
+                MinWidth: 40,
+                Width: 40,
+                SaveName: "Status",
+                Align: "Center",
+                Hidden: 1 //IBSHEET에서 보이지 않게 하기 1:안보임 0 또는 선언을 안하면:보임
+            },
+            {
+                Header: "프로젝트번호",
+                Type: "Text",
+                MinWidth: 40,
+                Width: 40,
+                SaveName: "project_id",
+                Align: "Center",
+                Hidden: 1
+            }
+
+        ];
+
+        //초기화=> EX)내가 어떤 컬럼을 편집중이다가 초기화 버튼을 누르면 처음 서버에서 받은 상태의 IBSHEET로 돌아간다.
+        IBS_InitSheet(mySheet, initSheet);
+
+        //doAction 자체함수를 이용하여 조회를 시작한다.
+        doAction('search');
+    }
+
+    /*Sheet 각종 처리*/
+    function doAction(sAction) {
+        switch (sAction) {
+            case "search": //조회
+                mySheet.LoadSearchData(total);
+                break;
+            case "save": //저장
+                console.log("저장");
+                //저장 시 트랜잭션 변화가 있는 데이터 전부를 보내기 위해 Param 속성을 이용하여 시트의 변화있는 전체 데이터를 전소
+                var data = JSON.stringify(mySheet.GetSaveJson());
+                mySheet.DoSave("/project/usersave", {// /project/usersave경로를 받는 컨트롤러로 이벤트 발생후의 변경된 결과값을 서버로 보내어 DB에 저장시켜주자
+                    "Param": data,
+                    "UrlEncode": 0
+                });
+                console.log(data);
+                break;
+        }
+    }
+    window.addEventListener("onload", LoadPage());
+
+</script>
+
+</html>

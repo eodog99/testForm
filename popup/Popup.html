@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // window
+        function newWindow() {
+            // window.open('팝업주소', '팝업창 이름', '팝업창 설정');
+            // _blank : 새창으로 열기 , _parent: 부모 프레임에 열린다, _self: 현재페이지를 대체한다, _top: 로드된 프레임셋을 대체한다, 
+            window.open('layerPopup.html', '_blank', 'left=100, top=100, width=500, height=300');
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="newWindow()">새창 띄우기</button>
+</body>
+
+</html>
