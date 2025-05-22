@@ -6,7 +6,11 @@
 
         
      .progress-wrap div{
-        width: 100px; height: 10px;
+      cursor: pointer;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+        width: 100px; height: 20px;
         border: 1px solid red;
     }
 
@@ -17,3 +21,8 @@
    .active {
         background-color: pink;
     }
+
+    span {
+      color: red;
+    }
+

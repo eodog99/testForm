@@ -26,15 +26,36 @@ button type 설정
 -->
 
 <body>
+    <!-- 진행바 -->
+    <div class="progress-wrap">
+        <div class="progress-step1" onclick="goBackToStep1()"> 1단계</div>
+        <div class="progress-step2" onclick="goBackToStep2()"> 2단계</div>
+        <div class=" progress-step3">3단계</div>
+    </div>
     <!-- step 1: 체크박스 -->
     <form id="step1">
         <input type="checkbox" name="check" value="submit"><label>완료</label>
         <input type="checkbox" name="check" value="nosubmit"><label>미완료</label>
-        <button type="button" onclick="goToStep2()">다음 단계</button>
+        <button type="button" onclick="goToStep2()">다음</button>
     </form>
     <!-- step 2: text 인풋 -->
     <form id="step2" style="display: none;">
-        <input type="text" id="name" placeholder="이름 입력">
+        <div class="form-item">
+            <label><span>*</span> 이름</label>
+            <input type="text" id="name" placeholder="이름 입력">
+        </div>
+        <div class="form-item">
+            <label>나이</label>
+            <input type="text" id="age" placeholder="나이 입력">
+        </div>
+        <div class="form-item">
+            <label><span>*</span> 번호</label>
+            <input type="text" id="phone" placeholder="번호 입력">
+        </div>
+        <div class="form-item">
+            <label>주소</label>
+            <input type="text" id="ad" placeholder="주소 입력">
+        </div>
         <button type="button" onclick="goBackToStep1()">이전</button>
         <button type="button" onclick="goToStep3()">다음</button>
     </form>
@@ -52,16 +73,35 @@ button type 설정
     </form>
     <!-- 리셋, 저장버튼 -->
     <div>
+        <!-- type을 button으로 한 이유: submit으로 했을떄 누를때마다 폼 전송이 된다 이를 방지하기 위해서.. button으로 하는거임-->
+        <button type="button" id="saveBtn" onclick="saveForm()">임시저장</button>
         <button type="reset" onclick="resetForm()">리셋</button>
     </div>
-    <!-- 진행바 -->
-    <div class="progress-wrap">
-        <div class="progress-step1"></div>
-        <div class="progress-step2"></div>
-        <div class="progress-step3"></div>
-    </div>
+
 </body>
 <script>
+    document.getElementById('saveBtn').addEventListener('click', function () {
+        // 체크박스 저장
+        const checkboxes = document.querySelectorAll('input[name="check"]:checked');
+        const selectedValues = Array.from(checkboxes).map(cb => cb.value);
+        localStorage.setItem('form_checkBox', JSON.stringify(selectedValues));
+
+        // 텍스트 input 저장
+        const inputIds = ['name', 'age', 'phone', 'ad'];
+        inputIds.forEach(id => {
+            const input = document.getElementById(id);
+            if (input) {
+                localStorage.setItem(`form_${id}`, input.value.trim());
+            }
+        });
+
+        // 라디오버튼 저장
+        const radiobtn = document.querySelector('input[name="company"');
+        if (radiobtn) {
+            localStorage.setItem('form_radio', radiobtn.value);
+        }
+        alert('임시 저장 완료!')
+    })
 
     // Step1 -> Step2 이동
     function goToStep2() {
@@ -72,32 +112,52 @@ button type 설정
             alert("체크해라");
             return; // 함수종료
         }
-        // 저장
-        localStorage.setItem('selectedCheckBox', JSON.stringify(selectedValues));
-        console.log(selectedValues + "저장완료");
+        // 체크 정보를 localStorage에 저장
+        localStorage.setItem('form_checkBox', JSON.stringify(selectedValues));
 
         document.getElementById('step1').style.display = 'none';
         document.getElementById('step2').style.display = 'block';
         document.querySelector('.progress-step2').classList.add('active');
     }
     // Step2 -> Step3 이동
-    // 이름 입력 받은게 없다면 alert가 뜸
+    // *의 값이 입력 되지 않았을 경우 alert가 뜸 (순서대로 하나만  alert가 뜨게))
     function goToStep3() {
-        const nameInput = document.getElementById('name');
+        const formItems = document.querySelectorAll('#step2 .form-item');
+        let isValid = true;
 
-        if (nameInput.value.length == 0) {
-            alert('이름 입력해라');
-            return false;
-        } else {
-            const nameValue = nameInput.value;
-            localStorage.setItem('form_name', nameValue); // 이름 저장
-            console.log(nameValue + "저장완료");
-            document.getElementById('step2').style.display = 'none';
-            document.getElementById('step3').style.display = 'block';
-            document.querySelector('.progress-step3').classList.add('active');
-        }
+        // 모든 input 데이터를 저장할 객체
+        const formData = {};
 
+        for (const item of formItems) {
+
+            const label = item.querySelector('label');
+            const input = item.querySelector('input');
+
+            if (label.querySelector('span')) {
+                if (!input.value.trim()) {
+                    alert(`${label.textContent.replace('*', '').trim()}을(를) 입력해주세요.`);
+                    isValid = false;
+                    break; // alert 하나만 뜨고 종료
+                }
+            }
+            formData[input.id] = input.value.trim(); // 모든 input 데이터 저장
+        };
+
+        if (!isValid) return;
+
+        // 로컬스토리지에 저장
+        Object.entries(formData).forEach(([key, value]) => {
+            localStorage.setItem(`form_${key}`, value);
+        });
+
+        // 다음 단계로 이동
+        document.getElementById('step2').style.display = 'none';
+        document.getElementById('step3').style.display = 'block';
+
+        // 진행 상태 업데이트
+        document.querySelector('.progress-step3')?.classList.add('active');
     }
+
 
     //제출 버튼을 눌렀을때 발생하는 이벤트
     function handleSubmit() {
@@ -107,67 +167,84 @@ button type 설정
         } else {
             const selectedValue = radiobtn.value;
             localStorage.setItem('form_radio', selectedValue);
-            console.log(selectedValue + "저장완료")
             alert('제출 완료')
+
 
         }
     }
 
+    //이전 버튼에 대한 함수
     // Step2 -> Step1 복귀 시 저장된 값 복원
     function goBackToStep1() {
-        const savedName = localStorage.getItem('form_name');
-        document.getElementById('name').value = savedName || '';
-
+        document.getElementById('step3').style.display = 'none';
         document.getElementById('step2').style.display = 'none';
         document.getElementById('step1').style.display = 'block';
         document.querySelector('.progress-step2').classList.remove('active');
+        document.querySelector('.progress-step3').classList.remove('active');
     }
 
     // Step3 -> Step2 복귀 시 저장된 값 복원
     function goBackToStep2() {
-        const savedName = localStorage.getItem('form_name');
-        document.getElementById('name').value = savedName || '';
+        const checkboxes = document.querySelectorAll('input[name="check"]:checked');
+        const selectedValues = Array.from(checkboxes).map(cb => cb.value);
 
+        if (selectedValues.length === 0) {
+            alert("체크해라");
+            return; // 함수종료
+        }
+        document.getElementById('step1').style.display = 'none';
         document.getElementById('step3').style.display = 'none';
         document.getElementById('step2').style.display = 'block';
+        document.querySelector('.progress-step2').classList.add('active');
         document.querySelector('.progress-step3').classList.remove('active');
     }
 
     //  리셋 버튼 이벤트
+    // localStorage.clear()을 쓰면 안되는 이유, 로그인 상태 등 다른 페이지에서 저장된 데이터 등도 모두 날아감.
     function resetForm() {
-        localStorage.removeItem('form_name');
-        localStorage.removeItem('selectedCheckBox');
-        localStorage.removeItem('form_radio');
+        Object.keys(localStorage).forEach(key => {
+            // form_으로 시작되는 로컬스토리지를 삭제한다.
+            if (key.startsWith('form_')) {
+                localStorage.removeItem(key);
+            }
+        });
 
-        // 화면상 입력값도 초기화
+        // 체크박스 초기화
         document.querySelectorAll('input').forEach(input => {
             if (input.type === 'checkbox' || input.type === 'text') {
                 input.checked = false;
                 input.value = '';
             }
         });
+        localStorage.removeItem('form_radio');
+
 
         document.getElementById('step1').style.display = "block";
         document.getElementById('step2').style.display = "none";
         document.getElementById('step3').style.display = "none";
+        document.querySelector('.progress-step2').classList.remove('active');
+        document.querySelector('.progress-step3').classList.remove('active');
     }
 
     // 페이지가 처음 열릴 때 저장된 이름이 있다면 입력칸에 자동 채우기
     window.onload = function () {
-        //이름 복원
-        const savedName = localStorage.getItem('form_name');
-        if (savedName) {
-            document.getElementById('name').value = savedName;
-        }
+
+        // input value값 복원
+        const inputIds = ['name', 'age', 'phone', 'add'];
+        inputIds.forEach(id => {
+            const saved = localStorage.getItem(`form_${id}`);
+            if (saved && document.getElementById(id)) {
+                document.getElementById(id).value = saved; // 인풋 값을 복원시키는 코드 
+            }
+        });
+
         // 체크박스 복원
-        const savedChecks = JSON.parse(localStorage.getItem('selectedCheckBox'));
+        const savedChecks = JSON.parse(localStorage.getItem('form_checkBox'));
         if (savedChecks && Array.isArray(savedChecks)) {
             savedChecks.forEach(val => {
                 const checkbox = document.querySelector(`input[name="check"][value="${val}"]`);
                 if (checkbox) {
                     checkbox.checked = true;
-                } else {
-                    console.warn(`체크박스 value="${val}" 를 찾을 수 없음`);
                 }
             });
         }

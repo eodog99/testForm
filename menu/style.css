@@ -11,22 +11,49 @@
         text-decoration: none;
         color: #333;
     }
+    /* 헤더 푸터 영역 css */
+    .heder-wrap {
+        background-color: antiquewhite;
+        height: 60px;
+    }
+    .footer-wrap {
+        background-color: lightgreen;
+        height: 150px;
+    }
 
+    .appWrap {
+        display: flex;
+         height: calc(100vh - 210px);
+    }
+
+    .content {
+        width: calc(100vw - 240px);
+        background-color: azure;
+    }
+
+    .menu-btn {
+        height: 60px;
+        background-color: pink;
+        cursor: pointer;
+    }
+    /* nav-wrap css */
     .nav-wrap {
-        width: 60px;
-        height: 100vh;
+        display: block;
+        width: 240px;
+        height: calc(100vh - 210px);
         padding: 0px;
         overflow: visible;
-        transition: width 0.3s ease;
+        transition: all 0.3s ease;
         background: white;
         border-right: 1px solid #ddd;
         position: relative;
         z-index: 10;
     }
-
+    
+   /* 
     .nav-wrap:hover {
         width: 240px;
-    }
+    } */
 
     .menu-item {
         display: flex;
@@ -54,7 +81,7 @@
         justify-content: space-between;
         width: 160px;
         height: 28px;
-        opacity: 0;
+        opacity: 1;
         margin-left: 8px;
         transition: opacity 0.3s ease;
     }
@@ -91,8 +118,15 @@
     .depth2-text {
         width: 100%;
         height: 30px;
-        padding: 2px 33px;
+        padding: 2px 0px 2px  33px;
+        display: flex;
+        justify-content: space-between;
     }
+
+    .depth2-text svg {
+         transform: rotate(90deg) scaleY(-1); 
+    }
+    
 
     .depth3-wrap.open {
         position: absolute;
@@ -104,7 +138,7 @@
     }
 /* 구분선 css */
         .nav-wrap hr {
-        width: 40px;
+        width: 200px;
         margin-top: 16px;
         margin-bottom: 0;
         border: 0;

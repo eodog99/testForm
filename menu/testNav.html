@@ -10,294 +10,429 @@
 </head>
 
 <body>
-    <aside class="nav-wrap">
-        <ul>
-            <li class="menu-item">
-                <div class="depth1-wrap">
-                    <div class="menu-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                            <path
-                                d="M6 16.0007H14M9.0177 1.76473L2.23539 7.03986C1.78202 7.39248 1.55534 7.56879 1.39203 7.78959C1.24737 7.98518 1.1396 8.20552 1.07403 8.43978C1 8.70425 1 8.99143 1 9.56578V16.8007C1 17.9208 1 18.4809 1.21799 18.9087C1.40973 19.285 1.71569 19.591 2.09202 19.7827C2.51984 20.0007 3.07989 20.0007 4.2 20.0007H15.8C16.9201 20.0007 17.4802 20.0007 17.908 19.7827C18.2843 19.591 18.5903 19.285 18.782 18.9087C19 18.4809 19 17.9208 19 16.8007V9.56578C19 8.99143 19 8.70425 18.926 8.43978C18.8604 8.20552 18.7526 7.98518 18.608 7.78959C18.4447 7.56879 18.218 7.39248 17.7646 7.03986L10.9823 1.76473C10.631 1.49148 10.4553 1.35485 10.2613 1.30233C10.0902 1.25599 9.9098 1.25599 9.73865 1.30233C9.54468 1.35485 9.36902 1.49148 9.0177 1.76473Z"
-                                stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+    <header class="heder-wrap">
+        <button id="navBtn" onclick="navHandler()" class="menu-btn">메뉴접기</button>
+        헤더
+    </header>
+    <div class="appWrap">
+        <aside class="nav-wrap">
+            <ul>
+                <li class="menu-item">
+                    <div class="depth1-wrap">
+                        <div class="menu-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
+                                fill="none">
+                                <path
+                                    d="M6 16.0007H14M9.0177 1.76473L2.23539 7.03986C1.78202 7.39248 1.55534 7.56879 1.39203 7.78959C1.24737 7.98518 1.1396 8.20552 1.07403 8.43978C1 8.70425 1 8.99143 1 9.56578V16.8007C1 17.9208 1 18.4809 1.21799 18.9087C1.40973 19.285 1.71569 19.591 2.09202 19.7827C2.51984 20.0007 3.07989 20.0007 4.2 20.0007H15.8C16.9201 20.0007 17.4802 20.0007 17.908 19.7827C18.2843 19.591 18.5903 19.285 18.782 18.9087C19 18.4809 19 17.9208 19 16.8007V9.56578C19 8.99143 19 8.70425 18.926 8.43978C18.8604 8.20552 18.7526 7.98518 18.608 7.78959C18.4447 7.56879 18.218 7.39248 17.7646 7.03986L10.9823 1.76473C10.631 1.49148 10.4553 1.35485 10.2613 1.30233C10.0902 1.25599 9.9098 1.25599 9.73865 1.30233C9.54468 1.35485 9.36902 1.49148 9.0177 1.76473Z"
+                                    stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="menu-text">
+                            <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
+                        </div>
                     </div>
-                    <div class="menu-text">
-                        <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
+                </li>
+                <hr>
+                <!-- 하나의 메뉴 1depth 2depth를 감쌈 -->
+                <li class="menu-item">
+                    <!-- menu-icon과 menu-text를 감쌈 -->
+                    <div class="depth1-wrap">
+                        <div class="menu-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
+                                viewBox="0 0 22 18" fill="none">
+                                <path
+                                    d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                                    stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="menu-text">
+                            <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                fill="none">
+                                <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <hr>
-            <!-- 하나의 메뉴 1depth 2depth를 감쌈 -->
-            <li class="menu-item">
-                <!-- menu-icon과 menu-text를 감쌈 -->
-                <div class="depth1-wrap">
-                    <div class="menu-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
-                            viewBox="0 0 22 18" fill="none">
-                            <path
-                                d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
-                                stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                    <ul class="depth2-wrap">
+                        <li>
+                            <!-- 2depth 메뉴명을 나타냄 -->
+                            <div class="depth2-text"><a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <!--  3depth 감쌈 -->
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="depth2-text"><a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <div class="depth1-wrap">
+                        <div class="menu-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
+                                viewBox="0 0 22 18" fill="none">
+                                <path
+                                    d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                                    stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="menu-text">
+                            <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                fill="none">
+                                <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </div>
-                    <div class="menu-text">
-                        <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                            <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                    <ul class="depth2-wrap">
+                        <li>
+                            <div class="depth2-text">
+                                <a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="depth2-text">
+                                <a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <div class="depth1-wrap">
+                        <div class="menu-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
+                                viewBox="0 0 22 18" fill="none">
+                                <path
+                                    d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                                    stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="menu-text">
+                            <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                fill="none">
+                                <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                <ul class="depth2-wrap">
-                    <li>
-                        <!-- 2depth 메뉴명을 나타냄 -->
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <!--  3depth 감쌈 -->
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <div class="depth1-wrap">
-                    <div class="menu-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
-                            viewBox="0 0 22 18" fill="none">
-                            <path
-                                d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
-                                stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                    <ul class="depth2-wrap">
+                        <li>
+                            <div class="depth2-text">
+                                <a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="depth2-text">
+                                <a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <!-- menu-icon과 menu-text를 감쌈 -->
+                    <div class="depth1-wrap">
+                        <div class="menu-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
+                                viewBox="0 0 22 18" fill="none">
+                                <path
+                                    d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                                    stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="menu-text">
+                            <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                fill="none">
+                                <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </div>
-                    <div class="menu-text">
-                        <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                            <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                    <ul class="depth2-wrap">
+                        <li>
+                            <!-- 2depth 메뉴명을 나타냄 -->
+                            <div class="depth2-text"><a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <!--  3depth 감쌈 -->
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="depth2-text"><a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <!-- menu-icon과 menu-text를 감쌈 -->
+                    <div class="depth1-wrap">
+                        <div class="menu-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
+                                viewBox="0 0 22 18" fill="none">
+                                <path
+                                    d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                                    stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="menu-text">
+                            <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                fill="none">
+                                <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                <ul class="depth2-wrap">
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <div class="depth1-wrap">
-                    <div class="menu-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
-                            viewBox="0 0 22 18" fill="none">
-                            <path
-                                d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
-                                stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                    <ul class="depth2-wrap">
+                        <li>
+                            <!-- 2depth 메뉴명을 나타냄 -->
+                            <div class="depth2-text"><a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <!--  3depth 감쌈 -->
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="depth2-text"><a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <!-- menu-icon과 menu-text를 감쌈 -->
+                    <div class="depth1-wrap">
+                        <div class="menu-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
+                                viewBox="0 0 22 18" fill="none">
+                                <path
+                                    d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                                    stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="menu-text">
+                            <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                fill="none">
+                                <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </div>
-                    <div class="menu-text">
-                        <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                            <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                    <ul class="depth2-wrap">
+                        <li>
+                            <!-- 2depth 메뉴명을 나타냄 -->
+                            <div class="depth2-text"><a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <!--  3depth 감쌈 -->
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="depth2-text"><a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <!-- menu-icon과 menu-text를 감쌈 -->
+                    <div class="depth1-wrap">
+                        <div class="menu-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
+                                viewBox="0 0 22 18" fill="none">
+                                <path
+                                    d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                                    stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="menu-text">
+                            <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                fill="none">
+                                <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                <ul class="depth2-wrap">
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <div class="depth1-wrap">
-                    <div class="menu-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
-                            viewBox="0 0 22 18" fill="none">
-                            <path
-                                d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
-                                stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                    <ul class="depth2-wrap">
+                        <li>
+                            <!-- 2depth 메뉴명을 나타냄 -->
+                            <div class="depth2-text"><a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <!--  3depth 감쌈 -->
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="depth2-text"><a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <!-- menu-icon과 menu-text를 감쌈 -->
+                    <div class="depth1-wrap">
+                        <div class="menu-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
+                                viewBox="0 0 22 18" fill="none">
+                                <path
+                                    d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                                    stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="menu-text">
+                            <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                fill="none">
+                                <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </div>
-                    <div class="menu-text">
-                        <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                            <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                </div>
-                <ul class="depth2-wrap">
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <div class="depth1-wrap">
-                    <div class="menu-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
-                            viewBox="0 0 22 18" fill="none">
-                            <path
-                                d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
-                                stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="menu-text">
-                        <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                            <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                </div>
-                <ul class="depth2-wrap">
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <div class="depth1-wrap">
-                    <div class="menu-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
-                            viewBox="0 0 22 18" fill="none">
-                            <path
-                                d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
-                                stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="menu-text">
-                        <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                            <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                </div>
-                <ul class="depth2-wrap">
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <div class="depth1-wrap">
-                    <div class="menu-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
-                            viewBox="0 0 22 18" fill="none">
-                            <path
-                                d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
-                                stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="menu-text">
-                        <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                            <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                </div>
-                <ul class="depth2-wrap">
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <div class="depth1-wrap">
-                    <div class="menu-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" title="종합속보아이콘" width="22" height="18"
-                            viewBox="0 0 22 18" fill="none">
-                            <path
-                                d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
-                                stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="menu-text">
-                        <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
-                            <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                </div>
-                <ul class="depth2-wrap">
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="depth2-text"><a>2Depth</a></div>
-                        <ul class="depth3-wrap">
-                            <li>3Depth</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </aside>
+                    <ul class="depth2-wrap">
+                        <li>
+                            <!-- 2depth 메뉴명을 나타냄 -->
+                            <div class="depth2-text"><a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <!--  3depth 감쌈 -->
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="depth2-text"><a>2Depth</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    fill="none">
+                                    <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <ul class="depth3-wrap">
+                                <li>3Depth</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <div class="content">
+            메인 컨텐츠
+        </div>
+    </div>
 
+
+    <footer class="footer-wrap">푸터</footer>
 </body>
 <script>
     // 네비게이션 스크립트 실행을 위한 초기 진입함수
@@ -388,6 +523,21 @@
             menuWrapper.addEventListener('mouseleave', function () {
                 resetMenu(menuWrapper);
             });
+        }
+    });
+
+
+
+    document.getElementById('navBtn').addEventListener('click', function () {
+        const navWrap = document.querySelector('.nav-wrap');
+        const content = document.querySelector('.content');
+        const currentOpacity = getComputedStyle(navWrap).display;
+        if (currentOpacity === 'block') {
+            navWrap.style.display = 'none';
+            content.style.width = '100vw';
+        } else {
+            navWrap.style.display = 'block';
+            content.style.width = 'calc(100vw - 240px)';
         }
     });
 
