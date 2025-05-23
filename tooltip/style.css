@@ -1,5 +1,6 @@
 .field {
-    width: 100px;
+    width: 200px;
+    position: relative;
 }
 .tooltip-item {
     background-color: rgb(32, 26, 83);
@@ -10,16 +11,18 @@
     width: 100px;
     height: 30px;
     cursor: pointer;
-    
+    margin-bottom: 50px;
+
 }
 
 .tooltip-wrap {
    display: flex;
+   white-space: noWrap;
    opacity: 0;
    transition: opacity 0.3s ease;
-
-   
-
+   position: absolute;
+   top: 0px;
+   left: 100px;
 }
 
 .field:hover .tooltip-wrap{

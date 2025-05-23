@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .name-group {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="name-group">
+        <div class="name-item">
+            <input type="radio" name="company" value="이정민" onclick="nameSelect()" id="group-company">
+            <label for="group-company">이정민</label>
+        </div>
+
+        <div class="name-item">
+            <input type="radio" name="company" value="정민이" onclick="nameSelect()" id="sub-company">
+            <label for="sub-company">정민이</label>
+        </div>
+
+    </div>
+</body>
+<script>
+    function nameSelect() {
+        const nameBtn = document.querySelector('input[name=company]:checked');
+        if (!nameBtn) {
+            alert('선택하삼')
+        } else {
+            const selectedName = nameBtn.value;
+            localStorage.setItem('form_radioname', selectedName)
+
+            alert('저장완료')
+            //  window.opener.postMessage('popup-closed', '*'); // 부모창에 메시지 보냄
+            window.close();
+        }
+
+    }
+</script>
+
+</html>

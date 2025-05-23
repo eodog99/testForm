@@ -1,0 +1,56 @@
+table {
+    border:  1px solid #ccc;
+    overflow: visible;
+}
+th, td {
+   border: 1px solid #ccc;
+}
+
+td {
+    cursor: pointer;
+}
+
+.tooltip-wrap{
+    position: relative;
+}
+
+span {
+white-space: noWrap;
+
+}
+
+.tooltip-item{
+    width: 100px;
+    height: 50px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid pink;
+    background-color: #fff;
+    position: absolute;
+    top: 28px;
+    left: 20px;
+    z-index: 100;
+}
+
+
+.tooltip-wrap:hover .tooltip-item {
+    display: block;
+
+}
+
+/* 툴팁 option */
+.tooltip-text[data-tooltip]:not([data-tooltip=""])::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 10px 7px;
+    border-radius: 10px;
+    max-width: 300px;
+    width: 300px;
+    left: 25%;
+    bottom: 120%;
+    opacity: 0;
+    transition: all 0.5s linear;
+}

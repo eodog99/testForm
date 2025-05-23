@@ -515,17 +515,6 @@
 
     }
 
-    // .nav-wrap를 찾고 마우스가 떠났을 떄 resetMenu함수 실행
-    document.addEventListener('DOMContentLoaded', function () {
-        const menuWrapper = document.querySelector('.nav-wrap');
-
-        if (menuWrapper) {
-            menuWrapper.addEventListener('mouseleave', function () {
-                resetMenu(menuWrapper);
-            });
-        }
-    });
-
 
 
     document.getElementById('navBtn').addEventListener('click', function () {
@@ -540,6 +529,7 @@
             content.style.width = 'calc(100vw - 240px)';
         }
     });
+
 
 
 </script>
