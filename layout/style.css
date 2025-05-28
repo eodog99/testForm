@@ -1,0 +1,92 @@
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0px;
+        padding: 0px
+    }
+
+    a {
+        text-decoration: none;
+        color: #333;
+    }
+    /* 헤더 푸터 영역 css */
+    .header-wrap {
+        background-color: antiquewhite;
+        height: 60px;
+    }
+    .nav-wrap {
+        display: block;
+        width: 220px;
+        height: calc(100vh - 130px);
+        background-color: rgb(255, 228, 178);
+    }
+    .footer-wrap {
+        background-color: lightgreen;
+        height: 70px;
+    }
+
+    .main-wrap {
+        display: flex;
+         height: calc(100vh - 130px);         
+    }
+
+    .content-wrap {
+        width: calc(100vw - 220px);
+        border: 1px solid red;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .content-head {
+        display: flex;
+        justify-content: space-between;
+        height: 28px;
+        background-color: rgb(230, 255, 194);
+   
+    }
+
+    .content-foot {
+        background-color: azure;
+        height: 32px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+       .content-body {
+        width: 100%;
+        height: calc(100% - 60px);
+        background-color: rgb(255, 238, 243);
+       }
+    
+    .progress-bar{
+        display: flex;
+        gap: 14px;
+    }
+
+    .progress-bar-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .progress-bar-item__line {
+        width: 138px;
+        height: 4px;
+        background-color: rgb(253, 0, 42);
+    }
+
+
+
+
+.step-section__title {
+    display: flex;
+}
+
+.form-body {
+    display: flex;
+
+}

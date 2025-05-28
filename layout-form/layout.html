@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout-form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+</head>
+
+<body class="body-wrap">
+    <header class="header-wrap">
+        헤더
+    </header>
+    <main class="main-wrap">
+        <nav class="nav-wrap">
+            nav
+        </nav>
+        <!-- 기존 content-wrap 에서 content로 수정, 
+        이유는  원래는 progress-bar를 포함하여 head로 했지만 타이틀만 남겨도 되기에........ 
+        head보다 title이 좀 더 직관적이지 않나 생각-->
+        <div class="content">
+            <div class="content_title">
+                <h3>수강신청</h3>
+            </div>
+            <div class="content-wrap">
+                <div class="progress-bar">
+                    <div class="progress-bar-item">
+                        <div class="progress-bar-item__line"></div>
+                        <div class="progress-bar-item__text">코드검색</div>
+                    </div>
+                    <div class="progress-bar-item">
+                        <div class="progress-bar-item__line"></div>
+                        <div class="progress-bar-item__text">코드검색</div>
+                    </div>
+                    <div class="progress-bar-item">
+                        <div class="progress-bar-item__line"></div>
+                        <div class="progress-bar-item__text">코드검색</div>
+                    </div>
+                    <div class="progress-bar-item">
+                        <div class="progress-bar-item__line"></div>
+                        <div class="progress-bar-item__text">코드검색</div>
+                    </div>
+                    <div class="progress-bar-item">
+                        <div class="progress-bar-item__line"></div>
+                        <div class="progress-bar-item__text">코드검색</div>
+                    </div>
+                    <div class="progress-bar-item">
+                        <div class="progress-bar-item__line"></div>
+                        <div class="progress-bar-item__text">코드검색</div>
+                    </div>
+                    <div class="progress-bar-item">
+                        <div class="progress-bar-item__line"></div>
+                        <div class="progress-bar-item__text">코드검색</div>
+                    </div>
+                </div>
+                <div class="step-section step-section--01">
+                    <!-- ul> li > dl 구조: 시멘틱, 구조 접근성을 좋게 하기위해 이러한 구조로 제작(psi 프로젝트 참고) -->
+                    <!-- modify-form 아니면 form-box, form-wrap 등등.. 고민중 -->
+                    <form class="modify-form">
+                        <ul>
+                            <!-- li는 목록 항목으로, 항목 간 구분이 목적을 위해 form-item 클래스명을 붙임-->
+                            <li class="form-item">
+                                <dl>
+                                    <!-- 필수 입력값은 label__required 클래스를 추가해 before을 통해 표시해줌 -->
+                                    <!-- span으로 넣을지 before로 넣을지 고민하다 태그 추가보단 css로 조정하는게 깔끔할거 같아서 선택함 -->
+                                    <dt><label class="label__required">조달구분</label></dt>
+                                    <dd>
+                                        <select class="form-item__select">
+                                            <option>L: Local - 국내 생산품목</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li class="form-item">
+                                <dl>
+                                    <dt><label class="label__required">구매시기</label></dt>
+                                    <dd>
+                                        <input type="date" class="form-item__date">
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li class="form-item">
+                                <dl>
+                                    <dt><label>긴급여부</label></dt>
+                                    <dd class="form-item--col">
+                                        <div class="flex--row">
+                                            <div class="form-item__radio-group">
+                                                <input type="radio" value="">
+                                                <label>발주예정일:</label>
+                                            </div>
+                                            <input type="date" class="form-item__date">
+                                        </div>
+                                        <div>
+                                            <textarea class="form__textarea"></textarea>
+                                        </div>
+
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li class="form-item">
+                                <dl>
+                                    <dt><label>MSDS여부</label></dt>
+                                    <dd class="form-item--col">
+                                        <div class="form-item__radio-group">
+                                            <input type="radio" value="">
+                                            <label>불가사유:</label>
+                                        </div>
+                                        <textarea class="form__textarea">
+
+                                        </textarea>
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li class="form-item">
+                                <dl>
+                                    <dt><label>품질변경 품목 여부</label></dt>
+                                    <dd>
+                                        <div class="form-item__radio-group">
+                                            <input type="radio">
+                                            <label>변경관리번호 :</label>
+                                        </div>
+                                        <input class="form__input form__input--m">
+                                        <button class="form__btn--search">
+                                        </button>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="step-section step-section--02">
+                    <div class="step-section__head">
+                        <!-- <div class="step-section__title">
+                            <h3 class="step-section__title-main">수정신청(CPR)</h3>
+                            <span class="step-section__title-sub">_기본정보입력</span>
+                        </div>
+                        <div class="step-section__sub-text">
+                            <p>필수입력칸(*) 을 모두 채워야 다음으로 넘어갈수있습니다</p>
+                        </div> -->
+                    </div>
+                    <div class="step-section__body">
+                        <div class="fileter-history-section">
+                        </div>
+                        <form class="modify-form-section">
+                        </form>
+                    </div>
+                </div>
+                <div class="content-foot">
+                    <div>
+                        <button>다음</button>
+                        <button>다음</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+    <footer class="footer-wrap">푸터</footer>
+</body>
+
+</html>

@@ -18,16 +18,16 @@
     }
     .footer-wrap {
         background-color: lightgreen;
-        height: 150px;
+        height: 70px;
     }
 
     .appWrap {
         display: flex;
-         height: calc(100vh - 210px);
+         height: calc(100vh - 130px);
     }
 
     .content {
-        width: calc(100vw - 240px);
+        width: calc(100vw - 220px);
         background-color: azure;
     }
 
@@ -39,8 +39,8 @@
     /* nav-wrap css */
     .nav-wrap {
         display: block;
-        width: 240px;
-        height: calc(100vh - 210px);
+        width: 220px;
+        height: calc(100vh - 130px);
         padding: 0px;
         overflow: visible;
         transition: all 0.3s ease;
@@ -79,7 +79,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 160px;
+        width: 145px;
         height: 28px;
         opacity: 1;
         margin-left: 8px;

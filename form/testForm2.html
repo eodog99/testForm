@@ -12,8 +12,18 @@
     <!-- 진행바 -->
     <div class="progress-wrap">
         <div class="progress-step1" onclick="goBackToStep1()"> 1단계</div>
-        <div class="progress-step2" onclick="goBackToStep2()"> 2단계</div>
-        <div class=" progress-step3">3단계</div>
+        <div class="progress-step2" onclick="goBackToStep2()">
+            <div>2</div>
+            <div>2</div>
+            <div>2</div>
+        </div>
+        <div class=" progress-step3" onclick="goBackToStep3()">3단계</div>
+        <div class="progress-step4" onclick="goBackToStep1()">
+            <div>4</div>
+            <div>4</div>
+        </div>
+        <div class="progress-step5" onclick="goBackToStep2()"> 5단계</div>
+        <div class=" progress-step6" onclick="goBackToStep3()">6단계</div>
     </div>
     <!-- step 1: 체크박스 -->
     <form id="step1">
@@ -21,7 +31,7 @@
         <input type="checkbox" name="check" value="No" onclick='checkOnly(this)'><label>아니오</label>
         <div class="form-item">
             <label><span>*</span> 이름</label>
-            <input type="text" id="radioname" placeholder="이름 입력">
+            <input type="text" id="code" placeholder="이름 입력">
             <button type="button" onclick="newWindow()">돋보기</button>
         </div>
         <button type="button" onclick="goToStep2()">다음</button>
@@ -64,6 +74,17 @@
         <button type="submit" onclick="handleSubmit()">제출</button>
 
     </form>
+
+    <!-- step 4: 라디오 버튼 -->
+    <hr>
+    <form id="step4" style="display:block;">
+        <h4>현재 선택한 자재 : <span id="itemName">[자제명]</span><span id="itemCode">[자재코드]</span></h4>
+
+    </form>
+    <hr>
+    <from>
+        <div></div>
+    </from>
     <!-- 리셋, 저장버튼 -->
     <div>
         <!--임시 저장 type을 button으로 한 이유: submit으로 했을떄 누를때마다 폼 전송이 된다. 이를 방지하기 위해 button으로 함-->
@@ -241,7 +262,7 @@
     window.onload = function () {
 
         // input value값 복원
-        const inputIds = ['radioname', 'name', 'age', 'phone', 'add', 'birth'];
+        const inputIds = ['code', 'radioname', 'name', 'age', 'phone', 'add', 'birth'];
         inputIds.forEach(id => {
             const saved = localStorage.getItem(`form_${id}`);
             if (saved && document.getElementById(id)) {
@@ -282,7 +303,7 @@
             localStorage.setItem('form_checkBox', JSON.stringify(selectedValues));
 
             // 텍스트 input 저장
-            const inputIds = ['radioname', 'name', 'age', 'phone', 'ad', 'birth'];
+            const inputIds = ['code', 'radioname', 'name', 'age', 'phone', 'ad', 'birth'];
             inputIds.forEach(id => {
                 const input = document.getElementById(id);
                 if (input) {
@@ -305,7 +326,8 @@
 
         popup.addEventListener('beforeunload', () => {
             // input value값 복원
-            const inputIds = ['radioname', 'name', 'age', 'phone', 'add', 'birth'];
+            const inputIds = ['code', 'radioname', 'name', 'age', 'phone', 'add', 'birth'];
+
             inputIds.forEach(id => {
                 const saved = localStorage.getItem(`form_${id}`);
                 if (saved && document.getElementById(id)) {
@@ -317,8 +339,13 @@
 
         const checker = setInterval(() => {
             if (popup.closed) {
+                // 선택한 자제 코드 띄우기
+                const codeValue = localStorage.getItem(`form_code`)
+                const codeArea = document.getElementById('itemCode')
+                codeArea.innerHTML = codeValue
                 // input value값 복원
-                const inputIds = ['radioname', 'name', 'age', 'phone', 'add', 'birth'];
+
+                const inputIds = ['code', 'radioname', 'name', 'age', 'phone', 'add', 'birth'];
                 inputIds.forEach(id => {
                     const saved = localStorage.getItem(`form_${id}`);
                     if (saved && document.getElementById(id)) {
@@ -337,6 +364,7 @@
         // 예: 팝업에서 보낸 메시지가 특정 값이면 처리
         if (event.data === 'popup-closed') {
             location.reload(); // 새로고침 또는 다른 작업
+
         }
     });
 
