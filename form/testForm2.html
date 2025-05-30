@@ -164,6 +164,12 @@
             if (label.querySelector('span')) {
                 if (!input.value.trim()) {
                     alert(`${label.textContent.replace('*', '').trim()}을(를) 입력해주세요.`);
+                    input.style.borderColor = "red";
+
+                    // 빨간 배경 2초 후 제거
+                    setTimeout(() => {
+                        input.style.borderColor = "";
+                    }, 1000);
                     isValid = false;
                     break; // alert 하나만 뜨고 종료
                 } else if (input.id === 'name' && input.value.trim().length < 2) {

@@ -11,6 +11,10 @@
         text-decoration: none;
         color: #333;
     }
+
+    button {
+        cursor: pointer;
+    }
     /* 헤더 푸터 영역 css */
     .header-wrap {
         background-color: antiquewhite;
@@ -83,6 +87,7 @@
 
 .step-section {
     border: 1px solid salmon;
+    overflow-y: auto;
 }
 
 .step-section__title {
@@ -94,13 +99,20 @@
 
 }
 
+.form-wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
 .modify-form {
     border: 1px solid #ccc;
-    width: 630px;
+    width: 100%;
 }
 
 .modify-form ul li dl {
     display: flex;
+    width: 100%;
     min-height: 38px;
     border-bottom: 1px solid #ccc;
    
@@ -115,18 +127,18 @@
     align-items: center;
     justify-content: center;
     background-color: #F4F8FE;
-     border-right:  1px solid #ccc;
+    border-right:  1px solid #ccc;
     
 }
 
 .form-item dl dd {
-     width: 100%;
-     padding: 4px 16px;
-     display: flex;
+    width: calc(100% - 188px);
+    padding: 4px 16px;
+    display: flex;
+    gap: 4px;
 }
 
 .form__textarea {
-    width: 100%;
     border: 1px solid #777;
 }
 
@@ -151,15 +163,11 @@ label{
 }
 
 .form-item__date {
-    width: 122px;
     border: 1px solid #777;
 }
 
-.form-item__select {
-    width: 100%;
-}
 
-.form-item--col{
+.form-item__content--col{
     flex-direction: column;
     gap: 4px;
 }
@@ -180,7 +188,81 @@ label{
 }
 
 .form__btn--search {
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
     background-image: url(/layout/StarIcon.svg);
+    background-size: 85% 85%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #333;
+}
+
+.form__btn-group {
+    display: flex;
+    align-items: center;
+    gap: 4px
+}
+
+
+/* file 찾기 커스텀*/
+.filebox .upload-name {
+    width: 250px;
+    height: 34px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    color: #999999;
+}
+
+.filebox-title {
+    display: inline-block;
+    width: 92px;
+    margin-right: 4px;
+    font-size: 14px;
+    text-align: right;
+}
+
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+.upload-btn {
+    padding: 5px 15px;
+    color: #fff;
+    vertical-align: middle;
+    cursor: pointer;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url(/layout/StarIcon.svg);
+    background-size: 85% 85%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #ccc;
+}
+/* size에 대한....*/
+.item__size--l {
+    width: 100%;
+}
+
+.item__size--m {
+    width: 50%;
+}
+
+.item__size--s {
+    width: calc(100%/3);
+}
+
+
+.form-item--two{
+    display: flex;
+}
+
+
+.step-section--02 {
+    display: none;
 }

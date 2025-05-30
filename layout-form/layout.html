@@ -17,9 +17,7 @@
         <nav class="nav-wrap">
             nav
         </nav>
-        <!-- 기존 content-wrap 에서 content로 수정, 
-        이유는  원래는 progress-bar를 포함하여 head로 했지만 타이틀만 남겨도 되기에........ 
-        head보다 title이 좀 더 직관적이지 않나 생각-->
+        <!-- 기존 content-wrap 에서 content로 수정, 이유는  원래는 progress-bar를 포함하여 head로 했지만 타이틀만 남겨도 되기에...  -->
         <div class="content">
             <div class="content_title">
                 <h3>수강신청</h3>
@@ -56,81 +54,229 @@
                     </div>
                 </div>
                 <div class="step-section step-section--01">
-                    <!-- ul> li > dl 구조: 시멘틱, 구조 접근성을 좋게 하기위해 이러한 구조로 제작(psi 프로젝트 참고) -->
-                    <!-- modify-form 아니면 form-box, form-wrap 등등.. 고민중 -->
-                    <form class="modify-form">
-                        <ul>
-                            <!-- li는 목록 항목으로, 항목 간 구분이 목적을 위해 form-item 클래스명을 붙임-->
-                            <li class="form-item">
-                                <dl>
-                                    <!-- 필수 입력값은 label__required 클래스를 추가해 before을 통해 표시해줌 -->
-                                    <!-- span으로 넣을지 before로 넣을지 고민하다 태그 추가보단 css로 조정하는게 깔끔할거 같아서 선택함 -->
-                                    <dt><label class="label__required">조달구분</label></dt>
-                                    <dd>
-                                        <select class="form-item__select">
-                                            <option>L: Local - 국내 생산품목</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                        </select>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <dt><label class="label__required">구매시기</label></dt>
-                                    <dd>
-                                        <input type="date" class="form-item__date">
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <dt><label>긴급여부</label></dt>
-                                    <dd class="form-item--col">
-                                        <div class="flex--row">
+
+                    <div class="form-wrap">
+                        <!-- ul> li > dl 구조: 시멘틱, 구조 접근성을 좋게 하기위해 이러한 구조로 제작(psi 프로젝트 참고) -->
+                        <form class="modify-form " style="flex: 1;">
+                            <ul>
+                                <!-- li는 목록 항목으로, 항목 간 구분이 목적을 위해 form-item 클래스명을 붙임-->
+                                <li class="form-item">
+                                    <dl>
+                                        <!-- 필수 입력값은 label__required 클래스를 추가해 before을 통해 표시해줌 -->
+                                        <!-- span으로 넣을지 before로 넣을지 고민하다 태그 추가보단 css로 조정하는게 깔끔할거 같아서 label에 클래스 추가하기를 선택함 -->
+                                        <dt class="form-item__title"><label class="label__required">조달구분</label></dt>
+                                        <dd class="form-item__content">
+                                            <select class="form-item__select item__size--l">
+                                                <option>L: Local - 국내 생산품목</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li class="form-item">
+                                    <dl>
+                                        <dt class="form-item__title"><label class="label__required">구매시기</label></dt>
+                                        <dd class="form-item__content">
+                                            <input type="date" class="form-item__date item__size--l">
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li class="form-item">
+                                    <dl>
+                                        <!-- label & field , title& content  -->
+                                        <dt class="form-item__title">
+                                            <label>긴급여부</label>
+                                        </dt>
+                                        <dd class="form-item__content form-item__content--col">
+                                            <div class="flex--row">
+                                                <div class="radio-group">
+                                                    <input type="radio" value="">
+                                                    <label>발주예정일:</label>
+                                                </div>
+                                                <input type="date" class="form-item__date item__size--m">
+                                            </div>
+                                            <div>
+                                                <textarea class="form__textarea item__size--l" rows="5"
+                                                    cols="15"></textarea>
+                                            </div>
+                                        </dd>
+
+                                    </dl>
+                                </li>
+                                <li class="form-item">
+                                    <dl>
+                                        <dt><label>MSDS여부</label></dt>
+                                        <dd class="form-item--col">
                                             <div class="form-item__radio-group">
                                                 <input type="radio" value="">
-                                                <label>발주예정일:</label>
+                                                <label>불가사유:</label>
                                             </div>
-                                            <input type="date" class="form-item__date">
-                                        </div>
-                                        <div>
-                                            <textarea class="form__textarea"></textarea>
-                                        </div>
-
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <dt><label>MSDS여부</label></dt>
-                                    <dd class="form-item--col">
-                                        <div class="form-item__radio-group">
-                                            <input type="radio" value="">
-                                            <label>불가사유:</label>
-                                        </div>
-                                        <textarea class="form__textarea">
+                                            <textarea class="form__textarea item__size--l">
 
                                         </textarea>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <dt><label>품질변경 품목 여부</label></dt>
-                                    <dd>
-                                        <div class="form-item__radio-group">
-                                            <input type="radio">
-                                            <label>변경관리번호 :</label>
-                                        </div>
-                                        <input class="form__input form__input--m">
-                                        <button class="form__btn--search">
-                                        </button>
-                                    </dd>
-                                </dl>
-                            </li>
-                        </ul>
-                    </form>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li class="form-item">
+                                    <dl>
+                                        <dt><label>품질변경 품목 여부</label></dt>
+                                        <dd>
+                                            <div class="form-item__radio-group">
+                                                <input type="radio">
+                                                <label>변경관리번호 :</label>
+                                            </div>
+                                            <div class="form__btn-group">
+                                                <input class="form__input form__input--m">
+                                                <button class="form__btn--search"> </button>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li class="form-item">
+                                    <dl>
+                                        <dt><label>MSDS여부</label></dt>
+                                        <dd>
+                                            <p>set</p>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li class="form-item form-item--two">
+                                    <dl>
+                                        <dt><label>MSDS여부</label></dt>
+                                        <dd>
+                                            <p>set</p>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><label>MSDS여부</label></dt>
+                                        <dd>
+                                            <p>set</p>
+                                        </dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </form>
+                        <form class="modify-form" style="flex: 1;">
+                            <ul>
+                                <!-- li는 목록 항목으로, 항목 간 구분이 목적을 위해 form-item 클래스명을 붙임-->
+                                <li class="form-item">
+                                    <dl>
+                                        <!-- 필수 입력값은 label__required 클래스를 추가해 before을 통해 표시해줌 -->
+                                        <!-- span으로 넣을지 before로 넣을지 고민하다 태그 추가보단 css로 조정하는게 깔끔할거 같아서 label에 클래스 추가하기를 선택함 -->
+                                        <dt class="form-item__title"><label class="label__required">특허종류/번호/만료일</label>
+                                        </dt>
+                                        <dd class="form-item__content">
+                                            <select class="form-item__select item__size--s">
+                                                <option>L: Local - 국내 생산품목</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select>
+                                            <input type="text" class="form__input item__size--s">
+                                            <input type="date" class="form-item__date item__size--s">
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li class="form-item">
+                                    <dl>
+                                        <dt class="form-item__title"><label class="label__required">구매시기</label></dt>
+                                        <dd class="form-item__content">
+                                            <select class="form-item__select item__size--m">
+                                                <option>L: Local - 국내 생산품목</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select>
+
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li class="form-item">
+                                    <dl>
+                                        <!-- label & field , title& content  -->
+                                        <!-- 파일 업로드에 대한건 아직 미정인듯
+                                          첨부파일 아이콘 클릭하면 ecm으로 등록하기 위한 팝업이 뜨고 팝업안에 단추를 누르면 ecm뜨고 그걸 누르고 또 등록해야 등록이 됨 -->
+                                        <dt class="form-item__title">
+                                            <label>첨부파일</label>
+                                        </dt>
+                                        <dd class="form-item__content form-item__content--col">
+                                            <div class="filebox">
+                                                <label class="filebox-title">첨부파일:</label>
+                                                <input class="upload-name" value="첨부파일" placeholder="첨부파일">
+                                                <label for="file" class="upload-btn"></label>
+                                                <input type="file" id="file"> <!--이건 안보이게-->
+                                            </div>
+                                            <div class="filebox">
+                                                <label class="filebox-title">첨부파일 링크1:</label>
+                                                <input class="upload-name" value="첨부파일" placeholder="첨부파일">
+                                                <label for="file" class="upload-btn"></label>
+                                                <input type="file" id="file"> <!--이건 안보이게-->
+                                            </div>
+                                            <div class="filebox">
+                                                <label class="filebox-title">첨부파일 링크2:</label>
+                                                <input class="upload-name" value="첨부파일" placeholder="첨부파일">
+                                                <label for="file" class="upload-btn"></label>
+                                                <input type="file" id="file"> <!--이건 안보이게-->
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li class="form-item">
+                                    <dl>
+                                        <dt><label>MSDS여부</label></dt>
+                                        <dd class="form-item--col">
+                                            <div class="form-item__radio-group">
+                                                <input type="radio" value="">
+                                                <label>불가사유:</label>
+                                            </div>
+                                            <textarea class="form__textarea item__size--l">
+
+                                        </textarea>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li class="form-item">
+                                    <dl>
+                                        <dt><label>품질변경 품목 여부</label></dt>
+                                        <dd>
+                                            <div class="form-item__radio-group">
+                                                <input type="radio">
+                                                <label>변경관리번호 :</label>
+                                            </div>
+                                            <div class="form__btn-group">
+                                                <input class="form__input form__input--m">
+                                                <button class="form__btn--search">
+                                            </div>
+
+                                            </button>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li class="form-item">
+                                    <dl>
+                                        <dt><label>MSDS여부</label></dt>
+                                        <dd>
+                                            <p>set</p>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li class="form-item form-item--two">
+                                    <dl>
+                                        <dt><label>MSDS여부</label></dt>
+                                        <dd>
+                                            <p>set</p>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><label>MSDS여부</label></dt>
+                                        <dd>
+                                            <p>set</p>
+                                        </dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                    <hr>
                 </div>
                 <div class="step-section step-section--02">
                     <div class="step-section__head">
