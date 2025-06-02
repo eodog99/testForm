@@ -27,7 +27,7 @@
     }
 
     .content {
-        width: calc(100vw - 220px);
+        width: 100vw;
         background-color: azure;
     }
 
