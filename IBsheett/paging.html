@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>IBSheet Paging2</title>
+
+  <!-- ibsheet css -->
+  <link rel="stylesheet"
+    href="https://demo.ibsheet.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/css/default/main.css" />
+  <!--  ibsheet 필수 js -->
+  <script src="https://demo.ibsheet.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/ibleaders.js"></script>
+  <script src="https://demo.ibsheet.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/ibsheet.js"></script>
+  <script src="https://demo.ibsheet.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/locale/ko.js"></script>
+
+  <!--  ibsheet 선택/추가 js -->
+  <script
+    src="https://demo.ibsheet.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/plugins/ibsheet-common.js"></script>
+  <script
+    src="https://demo.ibsheet.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/plugins/ibsheet-dialog.js"></script>
+  <script
+    src="https://demo.ibsheet.com/ibsheet/v8/samples/customer-sample/assets/ibsheet/plugins/ibsheet-excel.js"></script>
+
+  <!-- 스타일 -->
+  <style>
+    .pageNaviArea {
+      text-align: center !important;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>IBSheet 페이징</h2>
+
+  <div style='height:373px'>
+    <div id='sheetDiv' style='width:100%;height:100%'></div>
+  </div>
+</body>
+
+
+<script>
+  var ib = ib || {};
+  ib = {
+    //시트 초기화 구문
+    'init': {
+      //공통기능 설정 부분
+      "Cfg": {
+        "SearchMode": 4,
+        "MessageWidth": 300,
+        "UseHeaderSortCancel": 1,
+        "CanSort": 1,
+        "PageLength": 10,
+        InfoRowConfig: {
+          Visible: 1,
+          Layout: ["Paging2"], //, "Count"
+          // ViewCount: 1,
+          // ViewFormat: "10|20|30|50",
+          Paging2Count: 10,
+          Space: "Bottom"
+        }
+      },
+      "Def": {
+        "Row": {
+          "CanFormula": true
+        }
+      },
+      //틀고정 좌측 컬럼 설정
+      "LeftCols": [
+        { "Type": "Int", "Width": 100, "Align": "Center", "Name": "SEQ" }
+      ],
+      //중앙(메인) 컬럼 설정
+      "Cols": [
+        { "Header": "확인", "Type": "Bool", "Name": "sCheck", "Width": "60" },
+        { "Header": "회사", "Type": "Text", "Name": "sCompany", "Width": "150" },
+        { "Header": "판매 국가", "Type": "Text", "Name": "sCountry" },
+        { "Header": "판매 수량", "Type": "Int", "Name": "sSaleQuantity" },
+        { "Header": "판매 증가량", "Type": "Int", "Name": "sSaleIncrease" },
+        { "Header": "가격", "Type": "Int", "Name": "sPrice", "Format": "#,### \\원", "Width": "180" },
+        { "Header": "만족도", "Type": "Int", "Name": "sSatisfaction", "Format": "# \\%" },
+        { "Header": "코멘트", "Type": "Html", "Name": "sComment", "Width": "300", "RelWidth": 1 }
+      ]
+    },
+    //시트 이벤트
+    'event': {
+      onRenderFirstFinish: function (evt) {
+        var URL = './data.json';  // 로컬에 같은 폴더에 두는 JSON 파일 경로
+        var param = {};
+
+        if (evt.sheet.SearchMode > 1) {
+          param = {
+            url: URL,
+            method: 'GET',
+            callback: function (rtn) {
+              var rtnData = JSON.parse(rtn.data);
+              // evt.sheet.showMessageTime('<span style=\'color:black\'>조회가 완료되었습니다.<br> 전체 데이터 건수 : ' + rtnData.Total + '</span>', 1000);
+            }
+          };
+          evt.sheet.showFilterDialog();
+          evt.sheet.doSearchPaging(param);
+        }
+      },
+    },
+    //시트객체 생성
+    'create': function () {
+      var options = this.init;
+
+      options.Events = this.event;
+      IBSheet.create({
+        id: 'sheet', // 생성할 시트의 id
+        el: 'sheetDiv', // 시트를 생성할 Dom 객체 및 id
+        options: options, // 생성될 시트의 속성
+      });
+    },
+  }
+  ib.create();
+</script>
+
+</html>

@@ -151,4 +151,18 @@
     }
 
 
+   .depth1-wrap.active{
+        background-color: #307BBE;
   
+    }
+
+    .depth2-wrap.active{
+        background-color: #307BBE;
+  
+    }
+
+    
+    .depth3-wrap.open{
+        background-color: #307BBE;
+  
+    }

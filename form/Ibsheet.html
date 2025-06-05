@@ -28,212 +28,230 @@
         src="https://demo.ibsheet.com/ibsheet/v8/samples/customer-sample/assets/vendors/fontawesome.min.js"></script>
 </head>
 
-<style>
-    .IBMain .IBSideLeft {
-        padding-left: 2px;
-        background-position: 80px center;
-    }
-
-    .IBEnumHeaderLeft {
-        padding-left: 33px;
-        background-position: 79px 5px;
-    }
-
-    /* 
-    버튼 클릭전 빈버튼 이미지 추가하기
-.IBBool0, .IBBool0RO {
-    background-image: url();
-} */
-    /* 버튼 클릭시 바뀌는 이미지 */
-    .IBBool1,
-    .IBBool1RO {
-        background-image: url(/form/StarIcon.svg);
-    }
-
-    #sheet>tbody>tr:nth-child(2)>td>div>table>tbody>tr,
-    #sheet>tbody>tr:nth-child(7) {
-        display: none;
-    }
-</style>
-
 <body>
     <div style="height:100%">
-        <div id="sheetDiv" style="width:100%; height:300px"></div>
+
+
+        <div id="sheetDiv" style="width:100%; height:310px"></div>
         <div id="pagination" style="text-align:center; margin-top: 10px;"></div>
     </div>
-</body>
-<script>
-    function sheet_OnBeforeCheck(row, col) {
-        var sheet = IBSheet.getSheet("sheet");
-        var colName = sheet.ColSaveName(col);
 
-    }
-
-    const pagination = {
-        page: 1,
-        pageSize: 10,
-        totalItems: 0,
-        data: [
-            { "TextData": "Q1039384", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039385", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 },
-            { "TextData": "Q1039386", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039387", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 },
-            { "TextData": "Q1039388", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039389", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 },
-            { "TextData": "Q1039390", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039384", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039385", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 },
-            { "TextData": "Q1039386", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039387", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 },
-            { "TextData": "Q1039388", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039389", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 },
-            { "TextData": "Q1039390", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039384", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039385", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 },
-            { "TextData": "Q1039386", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039387", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 },
-            { "TextData": "Q1039388", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039389", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 },
-            { "TextData": "Q1039390", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039384", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039385", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 },
-            { "TextData": "Q1039386", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039387", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 },
-            { "TextData": "Q1039388", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039389", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 },
-            { "TextData": "Q1039390", "ComboData": "02", "ISO": "JPY", "Currency": "일본 엔", "DateData": "20220101", "ImageData": "", "PassData": "9999", "CheckData": 0 },
-            { "TextData": "Q1039391", "ComboData": "01", "ISO": "GBP", "Currency": "영국 파운드", "DateData": "20211231", "ImageData": "", "PassData": "8888", "CheckData": 0 }],
-        totalPages: 1,
-        init: {
-            Cfg: {
-                SearchMode: 2,
-                HeaderMerge: 3,
-                MessageWidth: 300,
-                SelFocusColor: 1
-            },
-            Def: {
-                Row: {
-                    CanFormula: true
-                }
-            },
-            LeftCols: [
-                { Header: { Value: " ", HeaderCheck: 0 }, BoolGroup: "1", Type: "Bool", Name: "CheckData", Width: 60, Align: "Center", CanEdit: 1 }
-            ],
-            Cols: [
-                { Header: "품명코드", Type: "Text", Name: "TextData", Width: 80, Align: "Center", CanEdit: 0 },
-                { Header: "재고량", Type: "Text", Name: "재고량", Width: 80, Align: "Center", CanEdit: 0 },
-                { Header: "개정차수", Type: "Text", Name: "개정차수", Width: 80, Align: "Center", CanEdit: 0 },
-                { Header: "처리상태", Type: "Text", Name: "처리상태", Width: 80, Align: "Center", CanEdit: 0 },
-                { Header: "품명", Type: "Text", Name: "품명", Width: 80, Align: "Center", CanEdit: 0 },
-                { Header: "단위", Type: "Text", Name: "단위", Width: 80, Align: "Center", CanEdit: 0 },
-                { Header: "사양/규격", Type: "Text", Name: "사양/규격", Width: 80, Align: "Center", CanEdit: 0 },
-                { Header: "신청자", Type: "Text", Name: "신청자", Width: 80, Align: "Center", CanEdit: 0 },
-                { Header: "PO No", Type: "Text", Name: "PONo", Width: 80, Align: "Center", CanEdit: 0 },
-                { Header: "계약시작일", Type: "Text", Name: "계약시작일", Width: 80, Align: "Center", CanEdit: 0 },
-                { Header: "계약만료일", Type: "Text", Name: "계약만료일", Width: 80, Align: "Center", CanEdit: 0 },
-                { Header: "계약업체", Type: "Text", Name: "계약업체", Width: 80, Align: "Center", CanEdit: 0 },
-                { Header: "BUYER", Type: "Text", Name: "BUYER", Width: 80, Align: "Center", CanEdit: 0 },
-            ]
-        },
-        event: {
-            //라디오 버튼과 품명코드 클릭시 품명코드 데이터가 저장된다.
-            onClick: function (args) {
-                const sheet = args.sheet;
-                const row = args.row;
-                const col = args.col;
-                if (col === "TextData" && row.Kind === "Data") {
-                    console.log("TextData 클릭됨:", row.TextData);
-                    const codeData = row.TextData
-                    localStorage.setItem('form_code', codeData)
-                    window.close();
-                }
-                if (col === "CheckData" && row.CheckData === 0) {
-                    console.log("TextData 클릭됨:", row.TextData);
-                    const codeData = row.TextData
-                    localStorage.setItem('form_code', codeData)
-                    window.close();
-                }
+    <script>
+        const samplePageObj = {
+            externalFunction: {
+                count: (function () {
+                    let i = 1;
+                    return function () { return i++; };
+                })()
             }
-        },
+        };
 
-        create: function () {
-            this.totalPages = Math.ceil(this.data.length / this.pageSize);
-            this.loadPage(this.page);
-            this.renderPagination();
-        },
-
-        loadPage: function (page) {
-            const start = (page - 1) * this.pageSize;
-            const end = start + this.pageSize;
-            const pageData = this.data.slice(start, end);
-
-            if (window.sheet) {
-                window.sheet.dispose(); // 7버전에서는 destroy
-            }
-
-            const options = JSON.parse(JSON.stringify(this.init));
-            options.Data = pageData;
-            options.Events = {
-                OnBeforeCheck: sheet_OnBeforeCheck,
-                onClick: this.event.onClick,
-            };
-
-            window.sheet = IBSheet.create({
-                id: 'sheet',
-                el: 'sheetDiv',
-                options: options
-            });
-        },
-
-        renderPagination: function () {
-            const paginationDiv = document.getElementById('pagination');
-            paginationDiv.innerHTML = '';
-            const self = this;
-
-            const totalPages = this.totalPages;
-            const currentPage = this.page;
-            const maxButtons = 5;
-            const currentGroup = Math.floor((currentPage - 1) / maxButtons);
-            const startPage = currentGroup * maxButtons + 1;
-            const endPage = Math.min(startPage + maxButtons - 1, totalPages);
-
-
-
-            const createButton = (label, page, isBlod = false) => {
-                const btn = document.createElement('button');
-                btn.textContent = label;
-                btn.style.margin = '0 5px';
-                if (isBlod) btn.style.fontWeight = 'bold'
-            }
-
-            for (let i = 1; i <= this.totalPages; i++) {
-                const btn = document.createElement('button');
-                btn.textContent = i;
-                btn.style.margin = '0 5px';
-                if (i === this.page) {
-                    btn.style.fontWeight = 'bold';
-                }
-                btn.addEventListener('click', function () {
-                    self.page = i;
-                    self.loadPage(i);
-                    self.renderPagination();
-                });
-                paginationDiv.appendChild(btn);
-            }
+        function sheet_OnBeforeCheck(row, col) {
+            var sheet = IBSheet.getSheet("sheet");
+            var colName = sheet.ColSaveName(col);
         }
-    };
 
-    function renderPagination() {
-        let pageInfo = `총 ${pagination.totalItems}개 중 ${pagination.page} / ${pagination.totalPages} 페이지\n`;
-        pageInfo += pagination.page > 1 ? "< 이전 " : "";
-        pageInfo += pagination.page < pagination.totalPages ? " 다음 >" : "";
+        const customPagination = {
+            page: 1,
+            pageSize: 10,
+            totalItems: 0,
+            data:
+                [{
+                    "Leaf Class": "A Packing",
+                    "상세설명": "02",
+                    "품명정의서": "JPY",
+                    "유사품명": "|/layout/StarIcon.svg"
+                },
+                {
+                    "Leaf Class": "AVR",
+                    "상세설명": "02",
+                    "품명정의서": "JPY",
+                    "유사품명": "|/layout/StarIcon.svg"
+                },
+                {
+                    "Leaf Class": "AVR",
+                    "상세설명": "02",
+                    "품명정의서": "JPY",
+                    "유사품명": "|/layout/StarIcon.svg"
+                },
+                {
+                    "Leaf Class": "AVR",
+                    "상세설명": "02",
+                    "품명정의서": "JPY",
+                    "유사품명": "|/layout/StarIcon.svg"
+                },
+                {
+                    "Leaf Class": "AVR",
+                    "상세설명": "02",
+                    "품명정의서": "JPY",
+                    "유사품명": "|/layout/StarIcon.svg"
+                },
+                {
+                    "Leaf Class": "AVR",
+                    "상세설명": "02",
+                    "품명정의서": "JPY",
+                    "유사품명": "|/layout/StarIcon.svg"
+                },
+                {
+                    "Leaf Class": "AVR",
+                    "상세설명": "02",
+                    "품명정의서": "JPY",
+                    "유사품명": "|/layout/StarIcon.svg"
+                },
+                {
+                    "Leaf Class": "AVR",
+                    "상세설명": "02",
+                    "품명정의서": "JPY",
+                    "유사품명": "|/layout/StarIcon.svg"
+                },
+                {
+                    "Leaf Class": "AVR",
+                    "상세설명": "02",
+                    "품명정의서": "JPY",
+                    "유사품명": "|/layout/StarIcon.svg"
+                }
 
-        console.log(pageInfo);
-    }
+                ],
+            totalPages: 1,
+            init: {
+                Cfg: {
+                    // "ShowFilter": 1,
+                    "SearchMode": 1,
+                    "ToolTip": 1,
+                    "InfoRowConfig": {
+                        "Visible": 1,
+                        // "Space": "Bottom",
+                        // "Layout": ["Paging", ""]
+                    },
+                    "GroupMain": "EMP_NO",
+                    "FitWidth": 1,
+                    "CanDrag": 1,
+                    "LongClick": 1000
+                },
+                Solid: [
+                    {
+                        "Kind": "Group",
+                        "Space": 0,
+                        "id": "Group"
+                    }
+                ],
+                Def: {
+                    Row: { CanFormula: true }
+                },
+                LeftCols: [
+                    { Header: { Value: " ", HeaderCheck: 0 }, BoolGroup: "1", Type: "Bool", Name: "CheckData", Width: 40, Align: "Center", CanEdit: 1 }
+                ],
+                Cols: [
+                    { Header: "Leaf Class", Type: "Text", Name: "Leaf Class", Width: 377, Align: "Center", CanEdit: 0 },
+                    { Header: "상세설명", Type: "Text", Name: "상세설명", Width: 590, Align: "Center", CanEdit: 0 },
+                    { Header: "품명정의서", Type: "Text", Name: "품명정의서", Width: 108, Align: "Center", CanEdit: 0 },
+                    {
+                        Header: "유사품명", Type: "Img", Name: "유사품명",
+                        Width: 135, Align: "Center", CanEdit: 0,
+                        Button: "Button", ToolTipText: "유사 품명을 확인하세요",
+                    },
+                ]
+            },
+            event: {
+                onClick: function (args) {
+                    const sheet = args.sheet;
+                    const row = args.row;
+                    const col = args.col;
 
-    window.onload = function () {
-        pagination.create();
-    };
-</script>
+                    if (col === "TextData" && row.Kind === "Data") {
+                        const codeData = row.TextData;
+                        localStorage.setItem('form_code', codeData);
+                        // window.close();
+                    }
+
+                    if (col === "CheckData" && row.CheckData === 0) {
+                        const codeData = row.TextData;
+                        localStorage.setItem('form_code', codeData);
+                        // window.close();
+                    }
+                },
+                onShowTip: function (evtParam) {
+                    // 툴팁 유사품명, Leaf Class의 경우에 나온다
+                    if (evtParam.col === "유사품명") {
+                        evtParam.tip = `
+                            <div style="padding: 5px; text-align:center;">
+                                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" width="32" /><br/>
+                                <span style="font-size: 12px;">선택한 유사품명:??????????</span>*Value*
+                            </div>`;
+                        return evtParam.tip;
+                    }
+                    if (evtParam.col === "Leaf Class") {
+                        const cellValue = evtParam.row[evtParam.col]
+                        if (cellValue === "AVR") {
+                            evtParam.tip = `
+                            <div style="padding: 5px; text-align:center;">
+                                <div style="display: flex; gap: 12px";>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" width="32" /><br/>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" width="32" /><br/>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" width="32" /><br/>
+                                </div>
+                              
+                                
+                            </div>`;
+                            return evtParam.tip;
+                        }
+
+                    }
+
+                }
+            },
+            create: function () {
+                this.totalPages = Math.ceil(this.data.length / this.pageSize);
+                this.loadPage(this.page);
+                this.renderPagination();
+            },
+            loadPage: function (page) {
+                const start = (page - 1) * this.pageSize;
+                const end = start + this.pageSize;
+                const pageData = this.data.slice(start, end);
+
+                if (window.sheet) window.sheet.dispose();
+
+                const options = JSON.parse(JSON.stringify(this.init));
+                options.Data = pageData;
+                options.Events = {
+                    OnBeforeCheck: sheet_OnBeforeCheck,
+                    onClick: this.event.onClick,
+                    onShowTip: this.event.onShowTip // ✅ 추가됨!
+                };
+
+                window.sheet = IBSheet.create({
+                    id: 'sheet',
+                    el: 'sheetDiv',
+                    options: options
+                });
+            },
+            renderPagination: function () {
+                const paginationDiv = document.getElementById('pagination');
+                paginationDiv.innerHTML = '';
+                const self = this;
+
+                for (let i = 1; i <= this.totalPages; i++) {
+                    const btn = document.createElement('button');
+                    btn.textContent = i;
+                    btn.style.margin = '0 5px';
+                    if (i === this.page) {
+                        btn.style.fontWeight = 'bold';
+                    }
+                    btn.addEventListener('click', function () {
+                        self.page = i;
+                        self.loadPage(i);
+                        self.renderPagination();
+                    });
+                    paginationDiv.appendChild(btn);
+                }
+            }
+        };
+
+        window.onload = function () {
+            customPagination.create();
+        };
+    </script>
+</body>
 
 </html>

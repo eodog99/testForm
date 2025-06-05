@@ -16,15 +16,44 @@
         cursor: pointer;
     }
     /* 헤더 푸터 영역 css */
+
     .header-wrap {
         background-color: antiquewhite;
         height: 50px;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+    
+    }
+     .header-left {
+        margin-left: 58px
+     }
+
+    .header-right {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-left: auto
+    }
+.lan-group {
+    display: flex;
+    gap: 10px;
+    margin-left: 30px;
+}
+
+   .vertical-line {
+    width: 1px;
+    height: 15px;
+    background-color: #B7B7B7;
+    border: none;
     }
     .menu-btn {
-            width: 58px;
-        height: 50px;
-        background-color: pink;
-        cursor: pointer;
+    width: 58px;
+    height: 50px;
+    background-color: pink;
+    cursor: pointer;
+    position: absolute;
+    left: 0px;
     }
     .content {
         width: calc(100vw - 220px);
@@ -33,7 +62,7 @@
     .nav-wrap {
         display: block;
         width: 220px;
-        height: calc(100vh - 130px);
+        height: calc(100vh - 138px);
         background-color: rgb(255, 228, 178);
     }
 
@@ -41,7 +70,6 @@
     .nav-wrap {
         display: block;
         width: 220px;
-        height: calc(100vh - 130px);
         padding: 0px;
         overflow: visible;
         transition: all 0.3s ease;
@@ -69,7 +97,27 @@
         align-items: center;
         gap: 10px;
         width: 100%;
-        margin-left: 13px;
+    }
+    .find-btn button{
+        background-color: #1A5384;
+        width: 170px;
+        height: 30px;
+        border-radius: 16px;
+        color: #fff;
+
+    }
+
+    .depth1-wrap.active{
+        background-color: #307BBE;
+  
+    }
+    .depth1-wrap.active span {
+      color: #fff;
+    }
+
+    .depth2-text.active {
+       background-color: #D8EDFF;
+       border-radius: 4px;
     }
 
     .nav-wrap:hover .menu-text {
@@ -121,6 +169,7 @@
         height: 30px;
         padding: 2px 0px 2px  33px;
         display: flex;
+        align-items: center;
         justify-content: space-between;
     }
 
@@ -130,11 +179,17 @@
     
 
     .depth3-wrap.open {
+        display: flex;
+        align-items: center;
+        padding: 0px 20px;
+        height: 30px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-left: 1px solid #fff;
         position: absolute;
         top: 0;
-        left: 230px; /* 열렸을때의 nav-wrap 너비 만큼 left 해줌 */
+        left: 192px; /* 열렸을때의 nav-wrap 너비 만큼 left 해줌 */
         z-index: 100;
-        display: block;
         width: 100%;
     }
 /* 구분선 css */
@@ -169,8 +224,7 @@
 
     .content-body{
         width: 100%;
-        height: calc(100vh - 206px);
-    
+        height: calc(100% - 76px);
         padding:0px 18px 18px 18px;
         display: flex;
         flex-direction: column;
@@ -207,7 +261,7 @@
     }
 
 .step-section {
-    border: 1px solid salmon;
+    /* border: 1px solid salmon; */
     overflow-y: auto;
 }
 
@@ -227,7 +281,6 @@
 }
 
 .form-box {
-    border: 1px solid #ccc;
     width: 100%;
 }
 
@@ -238,9 +291,7 @@
     border-bottom: 1px solid #ccc;
    
 }
-.form-box  ul li:last-child dl{
-    border-bottom: none;
-}
+
 
 .form-item dl dt {
     width: 188px;
@@ -256,12 +307,15 @@
     width: calc(100% - 188px);
     padding: 4px 16px;
     display: flex;
+    align-items: center;
     gap: 4px;
 }
 
 .form__textarea {
     border: 1px solid #777;
 }
+
+
 
 .label__required::before {
     content: "*";
@@ -326,7 +380,7 @@ label{
 
 
 /* file 찾기 커스텀*/
-.filebox .upload-name {
+.file-box .file-box__name{
     width: 250px;
     height: 34px;
     padding: 0 10px;
@@ -335,21 +389,40 @@ label{
     color: #999999;
 }
 
-.filebox-title {
+.file-box__title {
     display: inline-block;
-    width: 92px;
+    width: 80px;
     margin-right: 4px;
     font-size: 14px;
     text-align: right;
 }
 
-.filebox input[type="file"] {
+.file-box input[type="file"] {
     position: absolute;
     width: 0;
     height: 0;
     padding: 0;
     overflow: hidden;
     border: 0;
+}
+
+.file-box__img {
+    display: block;
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+
+}
+.form-btn {
+    padding: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    /* height: 15px; */
+    margin-left: 10px;
+    border: 1px solid #ccc;
 }
 
 .upload-btn {
@@ -359,7 +432,7 @@ label{
     cursor: pointer;
     height: 15px;
     margin-left: 10px;
-    background-image: url(/layout/StarIcon.svg);
+    background-image: url(/StarIcon.svg);
     background-size: 85% 85%;
     background-position: center;
     background-repeat: no-repeat;
@@ -401,7 +474,10 @@ label{
 .search-btn button span{
     border: 1px;
 }
-    
+footer {
+    padding: 0px !important;
+}
+
 .footer-wrap {
         background-color: #EDEDED;
         height: 88px;
@@ -468,12 +544,36 @@ text-align: center;
 
 .drawing-number-box {
     display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
-.flex--row {
+.flex-row {
     flex-direction: row;
+    gap: 20px !important;
 }
 
 .flex-col {
     flex-direction: column;
+    align-items: flex-start !important;
 }
+
+.ibsheet-box {
+  width: 100%;
+  height: 400px; /* 또는 원하는 값 */
+  overflow: auto;
+}
+#sheetDiv {
+  width: 100%;
+  height: 100%; /* 부모인 .ibsheet-box 높이 기준으로 꽉 차게 */
+}
+
+.pageNaviArea {
+    text-align: center !important;
+}
+
+/* 젤 위 인풋*/
+#IBTabStopPrev-0 {
+    display: none;
+}
+

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>layout-form</title>
+    <title>layout-form-test</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="reset.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -48,20 +48,8 @@
     <main class="main-wrap">
         <nav class="nav-wrap">
             <ul>
-                <li class="menu-item">
-                    <div class="depth1-wrap">
-                        <div class="menu-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
-                                fill="none">
-                                <path
-                                    d="M6 16.0007H14M9.0177 1.76473L2.23539 7.03986C1.78202 7.39248 1.55534 7.56879 1.39203 7.78959C1.24737 7.98518 1.1396 8.20552 1.07403 8.43978C1 8.70425 1 8.99143 1 9.56578V16.8007C1 17.9208 1 18.4809 1.21799 18.9087C1.40973 19.285 1.71569 19.591 2.09202 19.7827C2.51984 20.0007 3.07989 20.0007 4.2 20.0007H15.8C16.9201 20.0007 17.4802 20.0007 17.908 19.7827C18.2843 19.591 18.5903 19.285 18.782 18.9087C19 18.4809 19 17.9208 19 16.8007V9.56578C19 8.99143 19 8.70425 18.926 8.43978C18.8604 8.20552 18.7526 7.98518 18.608 7.78959C18.4447 7.56879 18.218 7.39248 17.7646 7.03986L10.9823 1.76473C10.631 1.49148 10.4553 1.35485 10.2613 1.30233C10.0902 1.25599 9.9098 1.25599 9.73865 1.30233C9.54468 1.35485 9.36902 1.49148 9.0177 1.76473Z"
-                                    stroke="#ABB0B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div class="menu-text">
-                            <p class="text-li"><a href="#" class="menuLink"><span>1Depth</span></a></p>
-                        </div>
-                    </div>
+                <li class="menu-item find-btn">
+                    <button>담당자찾기</button>
                 </li>
                 <hr>
                 <!-- 하나의 메뉴 1depth 2depth를 감쌈 -->
@@ -88,7 +76,7 @@
                     <ul class="depth2-wrap">
                         <li>
                             <!-- 2depth 메뉴명을 나타냄 -->
-                            <div class="depth2-text"><a>메뉴2</a>
+                            <div class="depth2-text"><a class="menuLink">메뉴2</a>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
                                     fill="none">
                                     <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
@@ -97,11 +85,11 @@
                             </div>
                             <!--  3depth 감쌈 -->
                             <ul class="depth3-wrap">
-                                <li><a href="/form/testForm.html">메뉴3</a></li>
+                                <li><a href="#" class="menuLink">메뉴3</a></li>
                             </ul>
                         </li>
                         <li>
-                            <div class="depth2-text"><a>메뉴4</a>
+                            <div class="depth2-text"><a class="menuLink">메뉴4</a>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
                                     fill="none">
                                     <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
@@ -109,7 +97,7 @@
                                 </svg>
                             </div>
                             <ul class="depth3-wrap">
-                                <li>메뉴5</li>
+                                <li><a href="layout.html" class="menuLink">메뉴5</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -136,7 +124,7 @@
                     <ul class="depth2-wrap">
                         <li>
                             <div class="depth2-text">
-                                <a>2Depth</a>
+                                <a class="menuLink">2Depth</a>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
                                     fill="none">
                                     <path d="M1 1L5 5L9 1" stroke="#ABB0B9" stroke-width="2" stroke-linecap="round"
@@ -144,7 +132,7 @@
                                 </svg>
                             </div>
                             <ul class="depth3-wrap">
-                                <li>3Depth</li>
+                                <li><a href="test.html">3ddd</a></li>
                             </ul>
                         </li>
                         <li>
@@ -460,298 +448,7 @@
         <!-- 기존 content-wrap 에서 content로 수정, 이유는  원래는 progress-bar를 포함하여 head로 했지만 타이틀만 남겨도 되기에...  -->
         <div class="content">
             <div class="content-head">
-                <h3>수강신청</h3>
-            </div>
-            <div class="content-body">
-                <div class="progress-bar">
-                    <div class="progress-bar-item">
-                        <div class="progress-bar-item__line"></div>
-                        <div class="progress-bar-item__text">코드검색</div>
-                    </div>
-                    <div class="progress-bar-item">
-                        <div class="progress-bar-item__line"></div>
-                        <div class="progress-bar-item__text">코드검색</div>
-                    </div>
-                    <div class="progress-bar-item">
-                        <div class="progress-bar-item__line"></div>
-                        <div class="progress-bar-item__text">코드검색</div>
-                    </div>
-                    <div class="progress-bar-item">
-                        <div class="progress-bar-item__line"></div>
-                        <div class="progress-bar-item__text">코드검색</div>
-                    </div>
-                    <div class="progress-bar-item">
-                        <div class="progress-bar-item__line"></div>
-                        <div class="progress-bar-item__text">코드검색</div>
-                    </div>
-                    <div class="progress-bar-item">
-                        <div class="progress-bar-item__line"></div>
-                        <div class="progress-bar-item__text">코드검색</div>
-                    </div>
-                    <div class="progress-bar-item">
-                        <div class="progress-bar-item__line"></div>
-                        <div class="progress-bar-item__text">코드검색</div>
-                    </div>
-                </div>
-                <div class="step-section step-section--01">
-                    <!-- ul> li > dl 구조: 시멘틱, 구조 접근성을 좋게 하기위해 이러한 구조로 제작(psi 프로젝트 참고) -->
-                    <form class="form-box" style="flex: 1;">
-                        <ul>
-                            <!-- li는 목록 항목으로, 항목 간 구분이 목적을 위해 form-item 클래스명을 붙임-->
-                            <li class="form-item">
-                                <dl>
-                                    <!-- 필수 입력값은 label__required 클래스를 추가해 before을 통해 표시해줌 -->
-                                    <!-- span으로 넣을지 before로 넣을지 고민하다 태그 추가보단 css로 조정하는게 깔끔할거 같아서 label에 클래스 추가하기를 선택함 -->
-                                    <dt class="form-item__title"><label class="label__required">select-box</label></dt>
-                                    <dd class="form-item__content">
-                                        <!--content에 들어가는 내용을 ...-box 형식으로 감쌈 -->
-                                        <div class="select-box">
-                                            <select class="select" data-placeholder="선택" id="select" tabindex="9">
-                                                <option>L : Local - 국내 생산품목</option>
-                                                <option>선택</option>
-                                                <option>선택</option>
-                                                <option>선택</option>
-                                            </select>
-                                        </div>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <dt class="form-item__title"><label class="label__required">date-box</label></dt>
-                                    <dd class="form-item__content">
-                                        <div class="date-box">
-                                            <input type="date" class="item__size--l">
-                                        </div>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <dt class="form-item__title"><label>radio</label></dt>
-                                    <dd class="form-item__content">
-                                        <div class="radio-box">
-                                            <input type="radio" class="radio" id="radio" name="radio" />
-                                            <label for="radio">불가 사유 :</label>
-                                        </div>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <dt class="form-item__title"><label>textarea-box</label></dt>
-                                    <!-- dd에 내용이 세로로 두개 들어갈떄 -->
-                                    <dd class="form-item__content">
-                                        <!-- textarea-box -->
-                                        <div class="textarea-box">
-                                            <textarea class="textarea" id="textarea1"
-                                                nameplaceholder="">10자 이상 작성 바랍니다.</textarea>
-                                        </div>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <dt><label>input-btn--box</label></dt>
-                                    <dd>
-                                        <!--"input-box--btn: btn이 포함된 input-box -->
-                                        <div class="input-box--btn">
-                                            <input class="input-text" type="text" placeholder="" />
-                                            <div class="search-btn">
-                                                <button class="form-btn"><span>dd</span></button>
-                                            </div>
-                                        </div>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <!-- form-item--compound: 하나의 form-item에 dl이 두개 들어갈 때(가로)-->
-                            <li class="form-item form-item--compound">
-                                <dl>
-                                    <dt><label>form-item--compound</label></dt>
-                                    <dd>
-                                        <input value="set" readonly>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt><label>MSDS여부</label></dt>
-                                    <dd>
-                                        <input value="set" readonly>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <!-- label & field , title& content  -->
-                                    <!-- 파일 업로드에 대한건 아직 미정인듯
-                                          첨부파일 아이콘 클릭하면 ecm으로 등록하기 위한 팝업이 뜨고 팝업안에 단추를 누르면 ecm뜨고 그걸 누르고 또 등록해야 등록이 됨 -->
-                                    <dt class="form-item__title">
-                                        <label>첨부파일</label>
-                                    </dt>
-                                    <dd class="form-item__content flex-col">
-                                        <div class="file-box">
-                                            <label class="file-box__title">첨부파일:</label>
-                                            <input class="file-box__name" value="첨부파일" placeholder="첨부파일" readonly>
-                                            <label for="file1" class="upload-btn"></label>
-                                            <input type="file" id="file1" style="display: none;">
-                                        </div>
-                                        <div class="file-box">
-                                            <label class="file-box__title">첨부파일:</label>
-                                            <input class="file-box__name" value="첨부파일" placeholder="첨부파일" readonly>
-                                            <label for="file2" class="upload-btn"></label>
-                                            <input type="file" id="file2" style="display: none;">
-                                        </div>
-                                        <div class="file-box">
-                                            <label class="file-box__title">첨부파일:</label>
-                                            <input class="file-box__name" value="첨부파일" placeholder="첨부파일" readonly>
-                                            <label for="file3" class="upload-btn"></label>
-                                            <input type="file" id="file3" style="display: none;">
-                                        </div>
-                                    </dd>
-
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <!-- 필수 입력값은 label__required 클래스를 추가해 before을 통해 표시해줌 -->
-                                    <!-- span으로 넣을지 before로 넣을지 고민하다 태그 추가보단 css로 조정하는게 깔끔할거 같아서 label에 클래스 추가하기를 선택함 -->
-                                    <dt class="form-item__title">
-                                        <label class="label__required">flex-row</label>
-                                    </dt>
-                                    <dd class="form-item__content flex-row">
-                                        <div class="select-box item__size--s">
-                                            <select class="select " data-placeholder="선택" id="select" tabindex="9">
-                                                <option>L : Local - 국내 생산품목</option>
-                                                <option>선택</option>
-                                                <option>선택</option>
-                                                <option>선택</option>
-                                            </select>
-                                        </div>
-                                        <div class="input-box--btn">
-                                            <input class="input-text" type="text" placeholder="" />
-                                        </div>
-                                        <div class="date-box item__size--s">
-                                            <input type="date">
-                                        </div>
-                                    </dd>
-                                </dl>
-                            </li>
-
-                            <li class="form-item">
-                                <dl>
-                                    <!-- label & field , title& content  -->
-                                    <!-- 파일 업로드에 대한건 아직 미정인듯
-                                          첨부파일 아이콘 클릭하면 ecm으로 등록하기 위한 팝업이 뜨고 팝업안에 단추를 누르면 ecm뜨고 그걸 누르고 또 등록해야 등록이 됨 -->
-                                    <dt class="form-item__title">
-                                        <label>도면번호</label>
-                                    </dt>
-                                    <dd class="form-item__content flex-col" style="gap: 12px;">
-                                        <div class="drawing-number-box">
-                                            <input type="checkbox">
-                                            <label>1:</label>
-                                            <div class="input-box--btn">
-                                                <input class="input-text" type="text" placeholder="" />
-                                                <div class="search-btn">
-                                                    <button class="form-btn"><span>dd</span></button>
-                                                </div>
-                                            </div>
-                                            <label>행번 :</label>
-                                            <input class="input-text" type="text" placeholder="" />
-                                        </div>
-                                        <div class="drawing-number-box">
-                                            <input type="checkbox">
-                                            <label>1:</label>
-                                            <div class="input-box--btn">
-                                                <input class="input-text" type="text" placeholder="" />
-                                                <div class="search-btn">
-                                                    <button class="form-btn"><span>dd</span></button>
-                                                </div>
-                                            </div>
-                                            <label>행번 :</label>
-                                            <input class="input-text" type="text" placeholder="" />
-                                        </div>
-
-
-
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <dt><label>MSDS여부</label></dt>
-                                    <dd class="form-item--col">
-                                        <div class="form-item__radio-group">
-                                            <input type="radio" value="">
-                                            <label>불가사유:</label>
-                                        </div>
-                                        <textarea class="form__textarea item__size--l">
-
-                                        </textarea>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <dt><label>readonly</label></dt>
-                                    <dd>
-                                        <input type="text" value="set" readonly>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li class="form-item">
-                                <dl>
-                                    <!-- label & field , title& content  -->
-                                    <!-- 파일 업로드에 대한건 아직 미정인듯
-                                          첨부파일 아이콘 클릭하면 ecm으로 등록하기 위한 팝업이 뜨고 팝업안에 단추를 누르면 ecm뜨고 그걸 누르고 또 등록해야 등록이 됨 -->
-                                    <dt class="form-item__title">
-                                        <label>첨부파일 이미지</label>
-                                    </dt>
-                                    <dd class="form-item__content flex-col">
-                                        <div class="file-box">
-                                            <label class="file-box__title">첨부파일:</label>
-                                            <input class="file-box__name" value="첨부파일" placeholder="첨부파일" readonly>
-                                            <label for="file4" class="upload-btn"></label>
-                                            <input type="file" id="file4" style="display: none;">
-                                            <img class="file-box__img">
-                                        </div>
-
-                                    </dd>
-
-                                </dl>
-                            </li>
-                        </ul>
-                    </form>
-
-                    <div class="ibsheet-box" style="width: 100%;">
-                        <div id="sheetDiv" style="width:100%; height:310px"></div>
-                        <div id="pagination" style="text-align:center; margin-top: 10px;"></div>
-                    </div>
-
-                </div>
-                <div class="step-section step-section--02">
-                    <div class="step-section__head">
-                        <!-- <div class="step-section__title">
-                            <h3 class="step-section__title-main">수정신청(CPR)</h3>
-                            <span class="step-section__title-sub">_기본정보입력</span>
-                        </div>
-                        <div class="step-section__sub-text">
-                            <p>필수입력칸(*) 을 모두 채워야 다음으로 넘어갈수있습니다</p>
-                        </div> -->
-                    </div>
-                    <div class="step-section__body">
-                        <div class="fileter-history-section">
-                        </div>
-                        <form class="modify-form-section">
-                        </form>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="content-foot">
-                <div>
-                    <button>다음</button>
-                    <button>다음</button>
-                </div>
+                <h3>이동햇다</h3>
             </div>
 
         </div>
@@ -812,255 +509,7 @@
 
 </body>
 
-<script>
-    const samplePageObj = {
-        externalFunction: {
-            count: (function () {
-                let i = 1;
-                return function () { return i++; };
-            })()
-        }
-    };
 
-    function sheet_OnBeforeCheck(row, col) {
-        var sheet = IBSheet.getSheet("sheet");
-        var colName = sheet.ColSaveName(col);
-    }
-
-    const customPagination = {
-        page: 1,
-        pageSize: 10,
-        totalItems: 0,
-        data:
-            [
-                {
-                    "Leaf Class": "B Packing",
-                    "상세설명": "02",
-                    "품명정의서": "JPY",
-                    "유사품명": "|/layout/StarIcon.svg"
-                },
-                {
-                    "Leaf Class": "A Packing",
-                    "상세설명": "02",
-                    "품명정의서": "JPY",
-                    "유사품명": "|/layout/StarIcon.svg"
-                },
-                {
-                    "Leaf Class": "AVR",
-                    "상세설명": "02",
-                    "품명정의서": "JPY",
-                    "유사품명": "|/layout/StarIcon.svg"
-                },
-                {
-                    "Leaf Class": "AVR",
-                    "상세설명": "02",
-                    "품명정의서": "JPY",
-                    "유사품명": "|/layout/StarIcon.svg"
-                },
-                {
-                    "Leaf Class": "AVR",
-                    "상세설명": "02",
-                    "품명정의서": "JPY",
-                    "유사품명": "|/layout/StarIcon.svg"
-                },
-                {
-                    "Leaf Class": "AVR",
-                    "상세설명": "02",
-                    "품명정의서": "JPY",
-                    "유사품명": "|/layout/StarIcon.svg"
-                },
-                {
-                    "Leaf Class": "AVR",
-                    "상세설명": "02",
-                    "품명정의서": "JPY",
-                    "유사품명": "|/layout/StarIcon.svg"
-                },
-                {
-                    "Leaf Class": "AVR",
-                    "상세설명": "02",
-                    "품명정의서": "JPY",
-                    "유사품명": "|/layout/StarIcon.svg"
-                },
-                {
-                    "Leaf Class": "AVR",
-                    "상세설명": "02",
-                    "품명정의서": "JPY",
-                    "유사품명": "|/layout/StarIcon.svg"
-                },
-                {
-                    "Leaf Class": "AVR",
-                    "상세설명": "02",
-                    "품명정의서": "JPY",
-                    "유사품명": "|/layout/StarIcon.svg"
-                }
-
-            ],
-        totalPages: 1,
-
-        init: {
-            Cfg: {
-                "SearchMode": 4,
-                "ToolTip": 1,
-                "Sorting": 1,   // 정렬 기능 사용
-                "InfoRowConfig": {
-                    "Visible": 1,
-                },
-                "GroupMain": "EMP_NO",
-                "FitWidth": 0,
-                "CanDrag": 1,
-                "LongClick": 1000
-            },
-            Solid: [
-                {
-                    "Kind": "Group",
-                    "Space": 0,
-                    "id": "Group"
-                }
-            ],
-            Def: {
-                Row: { CanFormula: true }
-            },
-            LeftCols: [
-                { Header: { Value: " ", HeaderCheck: 0 }, BoolGroup: "1", Type: "Bool", Name: "CheckData", Width: 40, Align: "Center", CanEdit: 1, CanSort: 1 }
-            ],
-            Cols: [
-                { Header: "Leaf Class", Type: "Text", Name: "Leaf Class", Width: 200, Align: "Center", CanEdit: 1, CanSort: 1 },
-                { Header: "상세설명", Type: "Text", Name: "상세설명", Width: 290, Align: "Center", CanEdit: 1, CanSort: 1 },
-                { Header: "품명정의서", Type: "Text", Name: "품명정의서", Width: 108, Align: "Center", CanEdit: 0, CanSort: 0 },
-                {
-                    Header: "유사품명", Type: "Img", Name: "유사품명",
-                    Width: 135, Align: "Center", CanEdit: 0,
-                    Button: "Button", ToolTipText: "유사 품명을 확인하세요",
-                },
-            ]
-        },
-
-        event: {
-            onClick: function (args) {
-                const sheet = args.sheet;
-                const row = args.row;
-                const col = args.col;
-
-                if (col === "TextData" && row.Kind === "Data") {
-                    const codeData = row.TextData;
-                    localStorage.setItem('form_code', codeData);
-                    // window.close();
-                }
-
-                if (col === "CheckData" && row.CheckData === 0) {
-                    const codeData = row.TextData;
-                    localStorage.setItem('form_code', codeData);
-                    // window.close();
-                }
-            },
-            onShowTip: function (evtParam) {
-                // 툴팁 유사품명, Leaf Class의 경우에 나온다
-                if (evtParam.col === "유사품명") {
-                    evtParam.tip = `
-                            <div style="padding: 5px; text-align:center;">
-                                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" width="32" /><br/>
-                                <span style="font-size: 12px;">선택한 유사품명:??????????</span>*Value*
-                            </div>`;
-                    return evtParam.tip;
-                }
-                if (evtParam.col === "Leaf Class") {
-                    const cellValue = evtParam.row[evtParam.col]
-                    if (cellValue === "AVR") {
-                        evtParam.tip = `
-                            <div style="padding: 5px; text-align:center;">
-                                <div style="display: flex; gap: 12px";>
-                                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" width="32" /><br/>
-                                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" width="32" /><br/>
-                                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" width="32" /><br/>
-                                </div>
-                              
-                                
-                            </div>`;
-                        return evtParam.tip;
-                    }
-
-                }
-
-            },
-            onSort: function (sheet, col, order) {
-                const colName = sheet.ColSaveName(col); // 예: "Leaf Class"
-                const isAsc = order === 1;              // 1: 오름차순, -1: 내림차순
-
-                // 실제 정렬
-                customPagination.data.sort((a, b) => {
-                    const aVal = a[colName] ?? '';
-                    const bVal = b[colName] ?? '';
-                    return isAsc
-                        ? aVal.localeCompare(bVal)
-                        : bVal.localeCompare(aVal);
-                });
-
-                // 다시 로드
-                customPagination.page = 1;
-                customPagination.loadPage(1);
-                customPagination.renderPagination();
-            }
-        },
-        create: function () {
-            this.totalPages = Math.ceil(this.data.length / this.pageSize);
-            this.loadPage(this.page);
-            this.renderPagination();
-        },
-        loadPage: function (page) {
-            const start = (page - 1) * this.pageSize;
-            const end = start + this.pageSize;
-            const pageData = this.data.slice(start, end);
-
-            if (window.sheet) window.sheet.dispose();
-
-            const options = JSON.parse(JSON.stringify(this.init));
-            options.Data = pageData;
-            options.Events = {
-                OnBeforeCheck: sheet_OnBeforeCheck,
-                onClick: this.event.onClick,
-                onShowTip: this.event.onShowTip,
-                OnSort: this.event.onSort
-            };
-
-            window.sheet = IBSheet.create({
-                id: 'sheet',
-                el: 'sheetDiv',
-                options: options
-            });
-        },
-        renderPagination: function () {
-            const paginationDiv = document.getElementById('pagination');
-            paginationDiv.innerHTML = '';
-            const self = this;
-
-            for (let i = 1; i <= this.totalPages; i++) {
-                const btn = document.createElement('button');
-                btn.textContent = i;
-                btn.style.margin = '0 5px';
-                if (i === this.page) {
-                    btn.style.fontWeight = 'bold';
-                }
-                btn.addEventListener('click', function () {
-                    self.page = i;
-                    self.loadPage(i);
-                    self.renderPagination();
-                });
-                paginationDiv.appendChild(btn);
-            }
-        }
-    };
-    setTimeout(() => {
-        if (window.sheet) {
-            window.sheet.renderBody();  // 또는 resize()
-        }
-    }, 100);
-
-
-    window.onload = function () {
-        customPagination.create();
-
-    };
-</script>
 
 <!-- 메뉴 접기 버튼 -->
 <script>
@@ -1136,8 +585,6 @@
 
 
 <script>
-    // 네비게이션 스크립트 실행을 위한 초기 진입함수
-    //nav 선택자로 전달가능 
     function initNavScript(containerSelector) {
         //containerSeletor엔 nav-wrap가 들어감
         const container = document.querySelector(containerSelector);
@@ -1199,11 +646,35 @@
                 });
             });
         }
+        function activateMenuByURL() {
+            const currentPath = window.location.pathname;
+            const depth3Links = container.querySelectorAll(".depth3-wrap a");
+
+            depth3Links.forEach(link => {
+                const href = link.getAttribute("href");
+
+                if (href && currentPath.includes(href)) {
+                    // depth2-text (depth2-wrap 아래에 있음)
+                    const depth2Text = link.closest(".depth2-wrap")?.querySelector(".depth2-text");
+                    if (depth2Text) {
+                        depth2Text.classList.add("active");
+                    }
+
+                    // depth1-wrap (.menu-item > .depth1-wrap)
+                    const depth1Wrap = link.closest(".menu-item")?.querySelector(".depth1-wrap");
+                    if (depth1Wrap) {
+                        depth1Wrap.classList.add("active");
+                        depth1Wrap.nextElementSibling?.classList.add("open"); // depth2-wrap 열기
+                    }
+                }
+            });
+        }
 
         // 실행
         bindDepth1Events();
         bindDepth2Events();
         bindDepth3Events();
+        activateMenuByURL();
     }
     initNavScript(".nav-wrap"); // 다른 페이지에 커스텀 nav 적용 가능
 
@@ -1283,6 +754,31 @@
     // 페이지 로딩 시 기존 목록 표시
     document.addEventListener('DOMContentLoaded', renderRecentMenus);
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const currentPath = window.location.pathname;
+        const depth3Links = document.querySelectorAll(".depth3-wrap li a");
+
+        depth3Links.forEach(link => {
+            const href = link.getAttribute("href");
+
+            if (href && currentPath.includes(href)) {
+                // 3depth li
+                const depth3Li = link.closest("li");
+
+                // 2depth li
+                const depth2Li = depth3Li.closest("ul.depth3-wrap")?.closest("li");
+                if (depth2Li) depth2Li.classList.add("active");
+
+                // 1depth li (menu-item)
+                const menuItem = depth2Li?.closest("ul.depth2-wrap")?.closest("li.menu-item");
+                if (menuItem) menuItem.classList.add("active");
+            }
+        });
+    });
+</script>
+
 
 
 </html>

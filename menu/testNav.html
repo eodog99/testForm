@@ -78,7 +78,7 @@
                                 </svg>
                             </div>
                             <ul class="depth3-wrap">
-                                <li>메뉴5</li>
+                                <li><a href="/layout-form/layout copy.html">메뉴5</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -607,6 +607,28 @@
     document.addEventListener('DOMContentLoaded', renderRecentMenus);
 </script>
 
+<!-- 메뉴 이동 active 표시 -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const currentPath = window.location.pathname; // ex) "/layout-form/layout copy.html"
+
+        // 3depth <a>들을 순회
+        document.querySelectorAll(".depth3-wrap a").forEach(link => {
+            const linkPath = link.getAttribute("href");
+
+            // 현재 경로와 a 태그의 href가 일치하는지 확인
+            if (currentPath.endsWith(linkPath)) {
+                // a → li → ul(depth3-wrap) → li → ul(depth2-wrap) → li(menu-item)
+                link.classList.add("active"); // 링크에 표시
+                link.closest(".menu-item")?.classList.add("active");
+                link.closest(".depth2-wrap")?.previousElementSibling?.classList.add("active"); // depth1 표시
+                link.closest(".depth3-wrap")?.previousElementSibling?.classList.add("active"); // depth2 표시
+            }
+        });
+    });
+
+
+</script>
 
 
 </html>
